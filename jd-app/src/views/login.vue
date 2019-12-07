@@ -84,6 +84,7 @@ export default {
   .other {
     color: #ccc;
     padding: 2vw;
+    font-size: 4vw;
   }
 }
 .another {
