@@ -4,8 +4,8 @@ import router from './router'
 import store from './store'
 import '@/less/common.less'//引入公用样式
 
-import { Search ,Button,Icon,Tab,Tabs} from 'vant';
-Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs)
+import { Search,Button,Icon,Tab,Tabs,NavBar,Field,CellGroup,Toast,Swipe, SwipeItem} from 'vant';
+Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs).use(NavBar).use(Field).use(CellGroup).use(Toast).use(Swipe).use(SwipeItem)
 
 
 Vue.config.productionTip = false
