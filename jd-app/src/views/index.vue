@@ -36,7 +36,7 @@
       <div>
         <router-link to="/user">
           <i class="iconfont icon-wode"></i>
-          <div>我的</div>
+          <div>{{loginState ? "我的" : '未登录'}}</div>
         </router-link>
       </div>
     </nav>
@@ -51,6 +51,14 @@ export default {
     return {
       flag: false
     };
+  },
+  created() {
+    if (!localStorage.getItem("token")) {
+      // this.$router.push('/login')
+    }
+  },
+  computed: {
+    ...mapState(["loginState"])
   }
 };
 </script>

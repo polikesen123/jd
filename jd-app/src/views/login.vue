@@ -5,21 +5,16 @@
     </div>
     <div class="msg">
       <van-cell-group>
-        <van-field
-          v-model="username"
-          clearable
-          placeholder="用户名/邮箱/手机号"
-          @click-right-icon="$toast('question')"
-        />
-        <van-field v-model="password" type="password" clearable placeholder="请输入密码" />
+        <van-field v-model="name" clearable placeholder="用户名/邮箱/手机号" />
+        <van-field v-model="psw" type="password" clearable placeholder="请输入密码" />
       </van-cell-group>
-      <van-button round type="danger">登录</van-button>
+      <van-button round type="danger" @click="login">登录</van-button>
       <van-button round>一键登录</van-button>
       <span class="lt other">短信验证码登录</span>
-      <span class="rt other">手机快速注册</span>
+      <span class="rt other" @click="showMask">手机快速注册</span>
     </div>
     <div class="another">
-      <h4>其他登录方式</h4>
+      <van-divider>其他登录方式</van-divider>
       <div class="qq lt">
         <span>
           <i class="iconfont icon-qq"></i>
@@ -34,25 +29,55 @@
       </div>
       <p class="foot lt">
         登录即代表您已同意
-        <em>京东隐私政策</em>
+        <em @click="showMask">京东隐私政策</em>
       </p>
     </div>
+    <my-mask :show="show"></my-mask>
   </div>
 </template>
 <script>
 // @ is an alias to /src
+import { login } from "@/api/login.js";
+import pMask from "@/components/privacyMask.vue"
 export default {
   name: "XXX",
   data() {
     return {
-      username: "",
-      password: ""
+      name: "",
+      psw: "",
+      show:false
     };
   },
-  components: {},
+  components: {
+    'my-mask':pMask
+  },
   methods: {
     onClickLeft() {
       this.$router.back();
+    },
+    showMask(){
+      this.show=false;
+      console.log(666)
+    },
+    login() {
+      if (!this.name || !this.psw) {
+        this.$toast.fail("用户名密码不能为空");
+        return;
+      }
+      let obj = {
+        name: this.name,
+        password: this.psw
+      };
+      login(obj).then(data => {
+        if (data.code == 0) {
+          this.$toast.success("登录成功");
+          localStorage.setItem("token", "sdfgdfgaergeargdvxergr");
+          this.$store.commit("stateChange", { loginState: true });
+          this.$router.back();
+        } else {
+          this.$toast.fail("用户名或者密码错误");
+        }
+      });
     }
   }
 };
@@ -118,14 +143,14 @@ export default {
   div {
     margin-top: 10vw;
   }
-  .foot { 
-      font-size: 3vw;
-      text-align: center;  
-      margin:5vw 25vw;
-      em{
-          color: #4a90e2;
-          font-style: normal;
-      }
+  .foot {
+    font-size: 3vw;
+    text-align: center;
+    margin: 5vw 25vw;
+    em {
+      color: #4a90e2;
+      font-style: normal;
+    }
   }
 }
 </style>

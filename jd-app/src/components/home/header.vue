@@ -9,7 +9,7 @@
         background="rgb(192,5,5)"
         class="lt search"
       />
-      <span class="rt">登录</span>
+      <span class="rt" @click="Tologin">登录</span>
     </nav>
     <div class="swiper">
       <van-swipe :autoplay="3000" indicator-color="white" :loop="true">
@@ -36,7 +36,12 @@ export default {
       value: ""
     };
   },
-  components: {}
+  components: {},
+  methods: {
+    Tologin(){
+      this.$router.push('/login')
+    }
+  },
 };
 </script>
 <style lang="less" scoped>

@@ -19,37 +19,11 @@ function success(flag = true, options = {}) {
 	};
 	return Object.assign(defaults, options);
 }
-
-function getDepartInfo(departmentId, req) {
-	return req.$departmentDATA.find(item => {
-		return parseFloat(item.id) === parseFloat(departmentId);
-	}) || {};
-}
-
-function getJobInfo(jobId, req) {
-	return req.$jobDATA.find(item => {
-		return parseFloat(item.id) === parseFloat(jobId);
-	}) || {};
-}
-
 function getUserInfo(userId, req) {
 	return req.$userDATA.find(item => {
 		return parseFloat(item.id) === parseFloat(userId);
 	}) || {};
 }
-
-function getCustomerInfo(customerId, req) {
-	return req.$customerDATA.find(item => {
-		return parseFloat(item.id) === parseFloat(customerId);
-	}) || {};
-}
-
-function getVisitInfo(visitId, req) {
-	return req.$visitDATA.find(item => {
-		return parseFloat(item.id) === parseFloat(visitId);
-	}) || {};
-}
-
 module.exports = {
 	handleMD5,
 	filterInvalid,
