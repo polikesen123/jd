@@ -1,7 +1,7 @@
 <template>
   <div class="secondBox">
     <div class="sTop cl">
-      <img src="../../assets/jdSecond.png" alt class="topImg lt" />
+      <!-- <img src="../../assets/jdSecond.png" alt class="topImg lt" /> -->
       <div class="time lt cl">
         <span class="lt content">16点场</span>
         <van-count-down :time="time" class="lt" format>
