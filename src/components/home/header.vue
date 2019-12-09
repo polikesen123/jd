@@ -11,6 +11,7 @@
       />
       <span class="rt" @click="Tologin">登录</span>
     </nav>
+    
     <div class="swiper">
       <van-swipe :autoplay="3000" indicator-color="white" :loop="true">
         <van-swipe-item>

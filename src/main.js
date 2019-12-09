@@ -19,9 +19,19 @@ import {
   Divider,
   Overlay,
   Panel,
-  Grid, GridItem
+  Grid, GridItem,
+  Checkbox, 
+  CheckboxGroup,
+  NoticeBar,
+  CouponCell, 
+  CouponList,
+  Popup,
+  Stepper,
+  SubmitBar,
+  Card,
 } from 'vant';
-Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs).use(NavBar).use(Field).use(CellGroup).use(Toast).use(Swipe).use(SwipeItem).use(Divider).use(Overlay).use(Panel).use(Grid).use(GridItem)
+Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs).use(NavBar).use(Field).use(CellGroup).use(Toast).use(Swipe).use(SwipeItem).use(Divider).use(Overlay).use(Panel).use(Grid).use(GridItem).use(Checkbox).use(CheckboxGroup).use(NoticeBar).use(CouponCell).use(CouponList).use(Popup).use(Stepper).use(SubmitBar).use(Card);
+
 
 
 Vue.config.productionTip = false
