@@ -36,16 +36,52 @@ app.use((req,res,next)=>{
 
 
 // 把读取数据的操作放到中间件处理
+//用户登录信息
 app.use((req,res,next)=>{
     readFile('./json/user.json').then(data=>{
-        req.data = JSON.parse(data);
+        req.userData = JSON.parse(data);
         next()
     }).catch(err=>{
         // 读取失败 给前端500
         res.status(500);
-        res.send('');
+        res.send('找不到你要的数据哦');
     })
 })
+//轮播图
+app.use((req,res,next)=>{
+    readFile('./json/swiper.json').then(data=>{
+        req.swiperData = JSON.parse(data);
+        next()
+    }).catch(err=>{
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
+
+app.use((req,res,next)=>{
+    readFile('./json/top1.json').then(data=>{
+        req.topData = JSON.parse(data);
+        next()
+    }).catch(err=>{
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
+
+app.use((req,res,next)=>{
+    readFile('./json/jdMS.json').then(data=>{
+        req.djmsData = JSON.parse(data);
+        next()
+    }).catch(err=>{
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
+
+
 app.use(session({
     //在这个中间件之后 会在 req上多了一个 session的属性
     name:'qqq',// 默认  connect.sid
@@ -56,6 +92,8 @@ app.use(session({
 		maxAge: 1000 * 60 * 60 * 24 * 30
 	}
 }));
+
+//用户信息
 app.post('/reg',function(req,res){
     // 实现注册接口
     let {username,password} = req.body;
@@ -88,11 +126,13 @@ app.post('/reg',function(req,res){
 })
 app.post('/login',function(req,res){
     let {username,password} = req.body;
-    let bol = req.data.some(item=>{
+    console.log(11,req.body)
+    let bol = req.userData.some(item=>{
         return item.username == username && item.password == password
     })
     if(bol){
         // 登录成功， 需要后端给前端种植一个cookie
+        console.log(22,username)
         req.session.userID = username;// 咱们后端在session上种植了一个属性
         res.send({
             code:0,
@@ -102,7 +142,7 @@ app.post('/login',function(req,res){
         })
     }else{
         res.send({
-            code:2,
+            code:1,
             msg:'用户名密码错误'
         })
     }
@@ -127,4 +167,24 @@ app.get('/info',function(req,res){
             msg:"no login"
         })
     }
+})
+
+app.get('/swiper',function(req,res){
+    res.send({
+        code:0,
+        data:req.swiperData
+    })
+})
+//京东秒杀上边的
+app.get('/hometop',function(req,res){
+    res.send({
+        code:0,
+        data:req.topData
+    })
+})
+app.get('/jdms',function(req,res){
+    res.send({
+        code:0,
+        data:req.djmsData
+    })
 })

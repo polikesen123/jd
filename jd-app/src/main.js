@@ -19,9 +19,11 @@ import {
   Divider,
   Overlay,
   Panel,
-  Grid, GridItem
+  Grid,
+  GridItem,
+  CountDown
 } from 'vant';
-Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs).use(NavBar).use(Field).use(CellGroup).use(Toast).use(Swipe).use(SwipeItem).use(Divider).use(Overlay).use(Panel).use(Grid).use(GridItem)
+Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs).use(NavBar).use(Field).use(CellGroup).use(Toast).use(Swipe).use(SwipeItem).use(Divider).use(Overlay).use(Panel).use(Grid).use(GridItem).use(CountDown)
 
 
 Vue.config.productionTip = false

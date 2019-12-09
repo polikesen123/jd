@@ -32,7 +32,7 @@
         <em @click="showMask">京东隐私政策</em>
       </p>
     </div>
-    <my-mask :show="show"></my-mask>
+    <my-mask :show="show" @getMaskData="getMaskData"></my-mask>
   </div>
 </template>
 <script>
@@ -56,8 +56,11 @@ export default {
       this.$router.back();
     },
     showMask(){
-      this.show=false;
+      this.show=true;
       console.log(666)
+    },
+    getMaskData(val){
+      this.show = val;
     },
     login() {
       if (!this.name || !this.psw) {

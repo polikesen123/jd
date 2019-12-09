@@ -13,7 +13,7 @@ http.interceptors.request.use(function (config) {
     if(config.data){
         config.data.token = localStorage.getItem('token');
     }else{
-        config.params.token = localStorage.getItem('token');
+        // config.params.token = localStorage.getItem('token');
     }
     
     return config;
