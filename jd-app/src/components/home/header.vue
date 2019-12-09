@@ -14,6 +14,7 @@
         <i class="iconfont icon-wode1"></i>
       </span>
     </nav>
+    
     <div class="swiper">
       <van-swipe :autoplay="3000" indicator-color="white" :loop="true">
         <van-swipe-item v-for="item in imgData" :key="item.title">
