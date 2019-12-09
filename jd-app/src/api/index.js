@@ -15,7 +15,6 @@ http.interceptors.request.use(function (config) {
     }else{
         config.params.token = localStorage.getItem('token');
     }
-    
     return config;
 }, function (error) {
     // 对请求错误做些什么

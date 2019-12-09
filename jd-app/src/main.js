@@ -19,9 +19,12 @@ import {
   Divider,
   Overlay,
   Panel,
-  Grid, GridItem
+  Grid, GridItem,Sidebar, SidebarItem,TreeSelect
 } from 'vant';
-Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs).use(NavBar).use(Field).use(CellGroup).use(Toast).use(Swipe).use(SwipeItem).use(Divider).use(Overlay).use(Panel).use(Grid).use(GridItem)
+Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs).use(NavBar).use(Field).use(CellGroup).use(Toast).use(Swipe).use(SwipeItem).use(Divider).use(Overlay).use(Panel).use(Grid).use(GridItem).use(TreeSelect)
+Vue.use(Sidebar);
+Vue.use(SidebarItem);
+
 
 
 Vue.config.productionTip = false
