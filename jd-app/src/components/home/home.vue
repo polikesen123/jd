@@ -6,7 +6,14 @@
     <div class="colorBox">
       <jdms></jdms>
       <newpeople></newpeople>
-      <mytop></mytop>
+      <div class="top2">
+        <img
+          src="https://m.360buyimg.com/mobilecms/s750x200_jfs/t1/97096/25/4836/88605/5de9c588Ed130b121/a60febbe6a08bc83.png!q70.webp"
+          alt
+        />
+      </div>
+      <four></four>
+      <!-- <east></east> -->
     </div>
   </div>
 </template>
@@ -17,6 +24,8 @@ import grid from "./grid";
 import homeTop from "./homeTop";
 import jdms from "./jdSecond";
 import newpeople from "./newpeople";
+import fourBox from "./fourBox";
+import eastGarden from './eastGarden'
 export default {
   name: "home",
   data() {
@@ -27,7 +36,9 @@ export default {
     grid,
     mytop: homeTop,
     jdms,
-    newpeople
+    newpeople,
+    four: fourBox,
+    // east:eastGarden
   }
 };
 </script>
@@ -37,5 +48,14 @@ export default {
   background: rgb(192, 5, 5);
   padding: 3vw;
   box-sizing: border-box;
+  .top2 {
+    width: 100%;
+    height: 30vw;
+    border-top: 1px solid rgba(218, 203, 203, 0.3);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 </style>

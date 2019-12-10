@@ -36,6 +36,9 @@ export default {
       imgData: []
     };
   },
+  mounted(){
+    console.log(this.loginState)
+  },
   components: {},
   created() {
     this.getSwiperData();
@@ -63,7 +66,7 @@ export default {
 .myheader {
   //   width: 100%;
   padding: 1vw 3vw;
-  line-height: 10vw;
+  line-height: 12vw;
   background: rgb(192, 5, 5);
   color: #fff;
   height: 45vw;
@@ -71,7 +74,7 @@ export default {
   border-radius: 0 0 30px 30px;
   nav {
     width: 100vw;
-    height: 10vw;
+    height: 12vw;
     position: fixed;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -87,7 +90,7 @@ export default {
     .search {
       margin-left: 3vw;
       width: 75vw;
-      padding: 3px 12px;
+      padding: 6px 12px;
     }
   }
   .swiper {

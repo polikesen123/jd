@@ -10,3 +10,6 @@ export function hometop(){
 export function jdms(){
     return http.get('/jdms')
 }
+export function four(){
+    return http.get('/four')
+}

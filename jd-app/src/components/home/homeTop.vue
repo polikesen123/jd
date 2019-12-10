@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="topContainer">
     <div class="box" v-for="item in ary" :key="item.title">
       <img :src="item.img" alt />
     </div>
@@ -28,8 +28,8 @@ export default {
   }
 };
 </script>
-<style lang="less">
-.container {
+<style lang="less" >
+.topContainer {
   width: 100%;
   height: 30vw;
   display: flex;
