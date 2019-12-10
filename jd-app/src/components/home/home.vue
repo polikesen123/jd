@@ -13,7 +13,12 @@
         />
       </div>
       <four></four>
-      <!-- <east></east> -->
+      <east></east>
+      <every></every>
+    </div>
+    <div class="homeMainBox">
+      <jd-news></jd-news>
+      <commend></commend>
     </div>
   </div>
 </template>
@@ -25,7 +30,10 @@ import homeTop from "./homeTop";
 import jdms from "./jdSecond";
 import newpeople from "./newpeople";
 import fourBox from "./fourBox";
-import eastGarden from './eastGarden'
+import eastGarden from './eastGarden';
+import every from './everyDay'
+import jdNews from './jdNews.vue';
+import commend from './commendGoods'
 export default {
   name: "home",
   data() {
@@ -38,7 +46,10 @@ export default {
     jdms,
     newpeople,
     four: fourBox,
-    // east:eastGarden
+    east:eastGarden,
+    every,
+    'jd-news':jdNews,
+    commend
   }
 };
 </script>
@@ -57,5 +68,11 @@ export default {
       height: 100%;
     }
   }
+}
+.homeMainBox{
+  background: #eee;
+  width: 100%;
+  margin-bottom: 20vw;
+
 }
 </style>

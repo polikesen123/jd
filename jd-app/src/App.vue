@@ -4,7 +4,18 @@
   </div>
 </template>
 
-
+<script>
+window.onload = function() {
+  document.addEventListener("touchstart", function(event) {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  });
+  document.addEventListener("gesturestart", function(event) {
+    event.preventDefault();
+  });
+};
+</script>
 <style lang="less">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

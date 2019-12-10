@@ -13,3 +13,12 @@ export function jdms(){
 export function four(){
     return http.get('/four')
 }
+//推荐好物
+export function getGoods(){
+    return http.get('/goods')
+}
+
+export function getEveryDay(){
+    return http.get('/everyday')
+}
+
