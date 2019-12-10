@@ -94,7 +94,29 @@ app.use((req, res, next) => {
     })
 })
 
+//京东推荐好物
+app.use((req, res, next) => {
+    readFile('./json/goodsItem.json').then(data => {
+        req.goodsData = JSON.parse(data);
+        next()
+    }).catch(err => {
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
 
+//每日好逛
+app.use((req, res, next) => {
+    readFile('./json/everyday.json').then(data => {
+        req.eveDayData = JSON.parse(data);
+        next()
+    }).catch(err => {
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
 
 app.use(session({
     //在这个中间件之后 会在 req上多了一个 session的属性
@@ -212,5 +234,17 @@ app.get('/four', function (req, res) {
     res.send({
         code: 0,
         data: req.fourData
+    })
+})
+app.get('/goods', function (req, res) {
+    res.send({
+        code: 0,
+        data: req.goodsData
+    })
+})
+app.get('/everyday', function (req, res) {
+    res.send({
+        code: 0,
+        data: req.eveDayData
     })
 })
