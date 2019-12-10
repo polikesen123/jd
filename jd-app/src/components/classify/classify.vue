@@ -2,7 +2,7 @@
   <div class="main">
     <my-header></my-header>
     <van-sidebar v-model="activeKey">
-      <van-sidebar-item :title="item" v-for="item in ary" ref="qqq" @click="fn" />
+      <van-sidebar-item :title="item" v-for="(item,index) in ary" ref="qqq" @click="fn" :key="index"/>
     </van-sidebar>
     <main-box></main-box>
   </div>

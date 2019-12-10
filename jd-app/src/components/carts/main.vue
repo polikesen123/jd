@@ -11,17 +11,18 @@
         <span class="buy lt">{{item.price|money}}</span>
         <van-stepper class="compute rt" v-model="item.count"></van-stepper>
       </div>
-    <!-- 收藏 删除按钮 -->
-      
-        <van-button class="collect" size="mini" @click="collect(index)">收藏</van-button>
-        <van-button class="del" size="mini" @click="del(index)">删除</van-button>
+      <!-- 收藏 删除按钮 -->
+
+      <van-button class="collect" size="mini" @click="collect(index)">收藏</van-button>
+      <van-button class="del" size="mini" @click="del(index)">删除</van-button>
+
       
       <!-- 结算功能 -->
       <van-submit-bar v-model="item.total" button-text="去结算" @submit="onSubmit">
         <van-checkbox v-model="checkAll">全选</van-checkbox>
         <h3>{{total|money}}</h3>
         <span slot="tip">
-          <span>修改地址</span>
+          <!-- <span>修改地址</span> -->
         </span>
       </van-submit-bar>
     </div>
@@ -29,9 +30,9 @@
     <div class="mask" v-show="show">
       <div class="panel panel-danger">
         <div class="panel-heading">
-          <h3 class="panel-title ">
-            <van-icon name="warning-o"/>
-         </h3>
+          <h3 class="panel-title">
+            <van-icon name="warning-o" />
+          </h3>
         </div>
         <div class="panel-body text-center">
           <h2 class="delText">是否确认删除此商品</h2>
@@ -46,9 +47,9 @@
     <div class="mark" v-show="showw">
       <div class="panel panel-danger">
         <div class="panel-heading">
-          <h3 class="panel-title ">
-            <van-icon name="warning-o"/>
-         </h3>
+          <h3 class="panel-title">
+            <van-icon name="warning-o" />
+          </h3>
         </div>
         <div class="panel-body text-center">
           <h2 class="delText">是否确认收藏此商品</h2>
@@ -59,59 +60,45 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 <script>
 // @ is an alias to /src
-
+import { main } from "@/api/carts.js";
 export default {
   name: "XXX",
   data() {
     return {
       delIndex: null,
-      collectIndex:null,
+      collectIndex: null,
       show: false,
-      showw:false,
-      aryList: [
-        {
-          id: 1,
-          url:
-            "https://img14.360buyimg.com/mobilecms/s270x270_jfs/t1/98835/26/5221/254811/5debd045E904adfb7/7d65aacb44b33f92.jpg",
-          text: "卡西欧|2019款315欧式手表（支持尺寸修改）已经出售加预定",
-          desc: "秒杀中...",
-          isSelect: false,
-          count: 2,
-          price: "550000"
-        },
-        {
-          id: 2,
-          url:
-            "https://img10.360buyimg.com/cms/s80x80_jfs/t20599/5/1848245261/259599/458bc9b5/5b39951dNfa084179.jpg",
-          text: "百筑别墅|2019款315欧式别墅（支持尺寸修改）已经出售加预定",
-          desc: "出售中...",
-          isSelect: true,
-          count: 1,
-          price: "110000"
-        }
-      ]
+      showw: false,
+      aryList: []
     };
   },
   components: {},
+  created() {
+    this.getMainData();
+  },
   methods: {
     onSubmit() {},
-    collect(m){
+    getMainData() {
+      main().then(data => {
+        this.aryList = data.data;
+      });
+    },
+    collect(m) {
       this.collectIndex = m;
       this.showw = true;
     },
     collectC() {
       this.showw = false;
     },
-    
+
     collectS() {
-    //   this.aryList.splice(this.collectIndex, 1);
+      //   this.aryList.splice(this.collectIndex, 1);
       this.showw = false;
-      console.log(666);      
+      console.log(666);
     },
 
     del(n) {
@@ -191,42 +178,41 @@ export default {
   margin-right: -30vw;
   margin-top: 4vw;
 }
-.mask,.mark {
+.mask,
+.mark {
   position: fixed;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
-  
 }
 
-.mask .panel,.mark .panel {
+.mask .panel,
+.mark .panel {
   width: 50vw;
   min-height: 30vw;
-  padding:4vw;
-  border:2px solid lightcoral;
+  padding: 4vw;
+  border: 2px solid lightcoral;
   background: #fff;
   margin: auto;
   border-radius: 10px;
   transform: translateY(50vw);
-  .panel-title{
-      font-size: 50px;
-      color:red;
-      font-weight:800;    
-    }
-  .delText{
-      color:#333;
-      font-size: 16px;
-      padding:2vw;
-      font-weight: 100;
+  .panel-title {
+    font-size: 50px;
+    color: red;
+    font-weight: 800;
   }
-  .btn,.btns{
-    margin:0 5vw; 
-    padding:2vw;
-    }
+  .delText {
+    color: #333;
+    font-size: 16px;
+    padding: 2vw;
+    font-weight: 100;
+  }
+  .btn,
+  .btns {
+    margin: 0 5vw;
+    padding: 2vw;
+  }
 }
-
-
-
 </style>

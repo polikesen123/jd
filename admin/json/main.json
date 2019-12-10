@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "url":
+          "https://img14.360buyimg.com/mobilecms/s270x270_jfs/t1/98835/26/5221/254811/5debd045E904adfb7/7d65aacb44b33f92.jpg",
+        "text": "卡西欧|2019款315欧式手表（支持尺寸修改）已经出售加预定",
+        "desc": "秒杀中...",
+        "isSelect": false,
+        "count": 2,
+        "price": "550000"
+      },
+      {
+        "id": 2,
+        "url":
+          "https://img10.360buyimg.com/cms/s80x80_jfs/t20599/5/1848245261/259599/458bc9b5/5b39951dNfa084179.jpg",
+        "text": "百筑别墅|2019款315欧式别墅（支持尺寸修改）已经出售加预定",
+        "desc": "出售中...",
+        "isSelect": true,
+        "count":1,
+        "price": "110000"
+      },
+      {
+        "id": 3,
+        "url":
+          "https://img14.360buyimg.com/mobilecms/s270x270_jfs/t1/74691/32/1264/66714/5cf7884eEc1ce7947/b0427dcd00d95173.jpg",
+        "text": "日本正宗本田GXV当当四冲程凤冷气由发动机垂直轴农用工业用",
+        "desc": "出售中...",
+        "isSelect": true,
+        "count":1,
+        "price": "185000"
+      }
+]

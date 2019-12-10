@@ -5,6 +5,8 @@
       <my-coupon></my-coupon>
       
       <my-main></my-main>
+
+      <my-footer></my-footer>
     </div>
 </template>
 
@@ -13,6 +15,7 @@
 import mycoupon from './coupon.vue'
 import myheader from './header.vue'
 import mymain from './main.vue'
+import myfooter from './footer.vue'
 import Vue from 'vue'
 Vue.filter('money',function(val){
     return "￥"+(val/100).toFixed(2)
@@ -33,6 +36,7 @@ export default {
       "my-coupon":mycoupon,
       "my-header":myheader,
       "my-main":mymain,
+      "my-footer":myfooter
   }
 };
 </script>

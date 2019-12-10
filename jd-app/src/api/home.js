@@ -13,6 +13,7 @@ export function jdms(){
 export function four(){
     return http.get('/four')
 }
+
 // 京喜请求
 export function surprise(){
     return http.get('/swiper')
@@ -26,3 +27,14 @@ export function gitMs(){
 export function commod(){
     return http.get('/commodity')
 }
+
+//推荐好物
+export function getGoods(){
+    return http.get('/goods')
+}
+
+export function getEveryDay(){
+    return http.get('/everyday')
+}
+
+
