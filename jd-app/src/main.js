@@ -22,7 +22,7 @@ import {
   Checkbox,
   CheckboxGroup,
   NoticeBar,
-  CouponCell, 
+  CouponCell,
   CouponList,
   Popup,
   Stepper,
@@ -32,14 +32,17 @@ import {
   Grid,
   GridItem,
   Tag,
-  CountDown
-  ,Sidebar, SidebarItem,TreeSelect,Tabbar, TabbarItem
+  CountDown,
+  Sidebar,
+  SidebarItem,
+  TreeSelect,
+  Tabbar,
+  TabbarItem,
+  Row,
+  Col
 } from 'vant';
-Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs).use(NavBar).use(Field).use(CellGroup).use(Toast).use(Swipe).use(SwipeItem).use(Divider).use(Overlay).use(Panel).use(Grid).use(GridItem).use(CountDown).use(Checkbox).use(CheckboxGroup).use(NoticeBar).use(CouponCell).use(CouponList).use(Popup).use(Stepper).use(SubmitBar).use(Card).use(CountDown).use(TreeSelect).use(Tabbar).use(TabbarItem)
-Vue.use(Sidebar);
-Vue.use(SidebarItem);
-Vue.use(Cell);
-Vue.use(Tag);
+Vue.use(Search).use(Button).use(Icon).use(Tab).use(Tabs).use(NavBar).use(Field).use(CellGroup).use(Toast).use(Swipe).use(SwipeItem).use(Divider).use(Overlay).use(Panel).use(Grid).use(GridItem).use(CountDown).use(Checkbox).use(CheckboxGroup).use(NoticeBar).use(CouponCell).use(CouponList).use(Popup).use(Stepper).use(SubmitBar).use(Card).use(CountDown).use(TreeSelect).use(Tabbar).use(TabbarItem).use(Row).use(Col)
+Vue.use(Sidebar).use(SidebarItem).use(Cell).use(Tag);
 
 
 

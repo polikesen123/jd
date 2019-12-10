@@ -15,7 +15,7 @@ const routes = [
     path: '/',
     name: 'index',
     component: Index,
-    redirect:'/home',
+    redirect:'/',
     children:[].concat(home,classify,surprise,user,carts)
   },
   {

@@ -35,6 +35,13 @@
         </p>
       </div>
     </div>
+    <div class="bottom">
+      <div class="inner cl">
+        <span class="hat lt"></span>
+        <span class="lt">免费试用 立领1张运费券</span>
+        <span class="rt">0元试用</span>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -112,6 +119,33 @@ export default {
             font-style: normal;
           }
         }
+      }
+    }
+  }
+  .bottom {
+    width: 100%;
+    margin-top: 7px;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    color: #ffe678;
+    font-size: 12px;
+    .inner {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 7px 10px 10px;
+      background: url(https://img11.360buyimg.com/jdphoto/s710x134_jfs/t1/43463/14/4447/108469/5cd2c002Ee4dcb4c9/445d4efb8eee08e9.png)
+        center center no-repeat;
+      background-size: 100% 67px;
+      border-radius: 8px;
+      .hat {
+        width: 57px;
+        height: 12px;
+        background: url(https://img11.360buyimg.com/jdphoto/s113x21_jfs/t1/44130/31/4355/2489/5cd2d9bdE7fd63a96/155d2b916c3ede73.png)
+          no-repeat center;
+        background-size: 100% 100%;
+        margin: 3px 5px;
       }
     }
   }
