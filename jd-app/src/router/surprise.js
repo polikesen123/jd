@@ -30,7 +30,6 @@ export default [
             {
                 path:"/surprise/phone",
                 component: phone,
-                // children:org
             },
             {
                 path:"/surprise/foot",
