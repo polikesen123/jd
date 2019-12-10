@@ -1,5 +1,7 @@
+// 主页
 <template>
   <div class="mainPage">
+
     <div class="padBot">
       <router-view></router-view>
     </div>
@@ -40,6 +42,7 @@
         </router-link>
       </div>
     </nav>
+    
   </div>
 </template>
 
