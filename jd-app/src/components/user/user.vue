@@ -1,12 +1,12 @@
 <template>
     <div>
-        我的
+        我得
     </div>
 </template>
 <script>
 // @ is an alias to /src
 export default {
-    name: 'user',
+    name: 'XXX',
     data() {
         return {
         

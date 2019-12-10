@@ -1,6 +1,6 @@
 <template>
     <div class="myheader">
-        <span class="lt">&lt</span>
+        <span class="lt" @click='toHome'>&lt</span>
         <span class="rt">...</span>
         <h2>购物车</h2>
         
@@ -16,6 +16,11 @@ export default {
     data() {
         return {
            
+        }
+    },
+    methods: {
+        toHome() {
+            this.$router.back()
         }
     },
     components: {
