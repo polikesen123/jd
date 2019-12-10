@@ -26,7 +26,6 @@ export default [
         name: 'surprise',
         component: Surprise,
         children:[
-            
             {
                 path:"/surprise/phone",
                 component: phone,
@@ -114,6 +113,16 @@ export default [
             }
         
         ]
+    },
+    {
+        path:'/surprise/seek',
+        name:'seek',
+        component:()=>import('@/components/surprise/content/seek.vue')
+    },
+    {
+        path: '/surprise/bore',
+        name: 'bore',
+        component: ()=>import('@/components/surprise/content/sansver/bore.vue')
     },
 
 ]

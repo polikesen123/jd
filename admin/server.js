@@ -62,6 +62,39 @@ app.use((req, res, next) => {
     })
 })
 
+// 京喜
+app.use((req, res, next) => {
+    readFile('./json/gitP.json').then(data => {
+        req.gitPData = JSON.parse(data);
+        next()
+    }).catch(err => {
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
+app.use((req, res, next) => {
+    readFile('./json/describe.json').then(data => {
+        req.msdata = JSON.parse(data);
+        next()
+    }).catch(err => {
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
+app.use((req, res, next) => {
+    readFile('./json/commodity.json').then(data => {
+        req.commod = JSON.parse(data);
+        next()
+    }).catch(err => {
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
+
+
 app.use((req, res, next) => {
     readFile('./json/top1.json').then(data => {
         req.topData = JSON.parse(data);
@@ -195,6 +228,25 @@ app.get('/swiper', function (req, res) {
         data: req.swiperData
     })
 })
+// 京喜
+app.get('/gitP', function (req, res) {
+    res.send({
+        code: 0,
+        data: req.gitPData
+    })
+})
+app.get('/describe', function (req, res) {
+    res.send({
+        code: 0,
+        data: req.msdata
+    })
+})
+app.get('/commodity', function (req, res) {
+    res.send({
+        code: 0,
+        data: req.commod
+    })
+})
 //京东秒杀上边的
 app.get('/hometop', function (req, res) {
     res.send({
@@ -212,5 +264,11 @@ app.get('/four', function (req, res) {
     res.send({
         code: 0,
         data: req.fourData
+    })
+})
+app.get('/gitP', function (req, res) {
+    res.send({
+        code: 0,
+        data: req.swiperData
     })
 })

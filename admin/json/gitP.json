@@ -1,0 +1,52 @@
+[
+    {
+       "name":"京喜直播",
+       "path":"/surprise/bore",
+       "icon":"play-circle-o"
+    },
+    {
+       "name":"9.9包邮" ,
+       "path":"/surprise/bore",
+       "icon":"free-postage"
+    },
+    {
+       "name":"清仓特卖" ,
+       "path":"/surprise/bore",
+       "icon":"balance-pay"
+    },
+    {
+       "name":"工厂直供" ,
+       "path":"/surprise/bore",
+       "icon":"logistics"
+    },
+    {
+       "name":"话费充值" ,
+       "path":"/surprise/bore",
+       "icon":"refund-o"
+    },
+    {
+       "name":"砍至1元" ,
+       "path":"/surprise/bore",
+       "icon":"discount"
+    },
+    {
+       "name":"养狗领奖" ,
+       "path":"/surprise/bore",
+       "icon":"service-o"
+    },
+    {
+       "name":"百亿补贴" ,
+       "path":"/surprise/bore",
+       "icon":"gold-coin-o"
+    },
+    {
+       "name":"任务赚钱" ,
+       "path":"/surprise/bore",
+       "icon":"balance-o"
+    },
+    {
+       "name":"全部频道" ,
+       "path":"/surprise/bore",
+       "icon":"apps-o"
+    }
+]

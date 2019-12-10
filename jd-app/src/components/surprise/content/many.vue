@@ -1,13 +1,14 @@
 <template>
+<div class="cl">
   <div class="non" v-show="flag">
     <div 
     class="turn" 
-    v-for="item in ary" 
+    v-for="(item) in ary" 
     :key="item.num"
-    @click='jump'
+    @click='jump(item.link)'
     >
         {{item.content}}</div>
-  </div>
+  </div></div>
 </template>
 <script>
 // @ is an alias to /src
@@ -26,22 +27,22 @@ export default {
         {
           content: "购物车",
           num: 1,
-          link:'classify'
+          link:'/classify'
         },
         {
           content: "分类搜索",
           num: 2,
-          link:'surprise'
+          link:'/surprise'
         },
         {
           content: "我的京东",
           num: 3,
-          link:'user'
+          link:'/user'
         },
         {
           content: "浏览记录",
           num: 4,
-          link:'user/'
+          link:'/user'
         }
       ]
     };
@@ -50,8 +51,10 @@ export default {
       console.log(this.flag)
   },
   methods: {
-    jump() {
-        
+    jump(n) {
+      console.log(n)
+
+        this.$router.push(n)
     },
     
   },
@@ -67,7 +70,7 @@ export default {
       box-sizing: border-box;
       position: absolute;
       right: 5vw;
-      z-index: 99;
+      z-index: 101;
       >.turn{
           height: 5vw;
           width: 100%;

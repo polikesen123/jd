@@ -1,18 +1,29 @@
 <template>
   <div class="aaa">
+    <div class="nav">
+      <div>
+        <van-search
+          v-model="value"
+          placeholder="请输入搜索关键词"
+          show-action
+          shape="round"
+          @search="onSearch"
+          @click="jump"
+          class="search"
+        >
+          <div slot="action" @click.13="onSearch">搜索</div>
+        </van-search>
+      </div>
+    </div>
+
     <span class="jx" style="z-index:30" @click="run">精选</span>
     <div class="vant-box">
       <van-tabs>
         <span class="vant">
           <van-icon name="arrow-down" />
         </span>
-        <van-tab
-          v-for="(item) in ary"
-          :key="item.path"
-          :title="item.text"
-          :to="item.path"
-        >
-            <router-view></router-view>
+        <van-tab v-for="(item) in ary" :key="item.path" :title="item.text" :to="item.path">
+          <router-view></router-view>
         </van-tab>
       </van-tabs>
     </div>
@@ -24,10 +35,11 @@ export default {
   name: "bar",
   data() {
     return {
+      value: "",
       ary: [
         {
           text: "手机",
-          path: "/surprise/phone",
+          path: "/surprise/phone"
         },
         {
           text: "食品",
@@ -37,8 +49,7 @@ export default {
           text: "家电",
           path: "/surprise/homeshod"
         },
-        { text: "内衣", 
-        path: "/surprise/underwear" },
+        { text: "内衣", path: "/surprise/underwear" },
         {
           text: "百货",
           path: "/surprise/department"
@@ -124,16 +135,20 @@ export default {
     };
   },
   methods: {
+    onSearch() {
+      if (!this.value) return;
+      console.log("surprise 搜索框事件");
+    },
+
     run() {
-      if(this.$route.path=='/surprise')return
+      if (this.$route.path == "/surprise") return;
       this.$router.push("/surprise");
     },
-    jump(n) {
-      console.log(n);
+    jump() {
+      this.$router.push('/surprise/seek')
     }
   },
-  components: {
-  }
+  components: {}
 };
 </script>
 <style lang="less">
@@ -162,6 +177,27 @@ div.aaa {
     top: 0vw;
     font-size: 20px;
     transform: translateY(50%);
+  }
+  .van-tab__pane {
+    position: absolute;
+    right: 5vw;
+  }
+  .nav {
+    height: 15vw;
+    transform: translateX(-5vw);
+    > div {
+      display: inline-block;
+      > .arrow-left {
+        display: inline-block;
+      }
+      > .search {
+        width: 80vw;
+        margin: auto;
+      }
+    }
+  }
+  .van-icon-arrow-down {
+    transform: translateX(2vw);
   }
 }
 </style>

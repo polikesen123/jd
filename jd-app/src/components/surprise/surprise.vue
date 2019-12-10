@@ -1,36 +1,39 @@
 <template>
-  <div class="sprs">
+  <div class="sprs cl">
     <nav>
       <div class="head">
         <van-icon name="arrow-left" size="5vw" @click="sreturn" style="float:left"></van-icon>京喜
         <van-icon name="more-o" style="float:right" size="5vw" @click="jurp"></van-icon>
         <my-mory :flag="flag"></my-mory>
       </div>
-      <div class="nav">
-        <div>
-          <van-search
-            v-model="value"
-            placeholder="请输入搜索关键词"
-            show-action
-            shape="round"
-            @search="onSearch"
-            class="search"
-          >
-            <div slot="action" @click.13="onSearch">搜索</div>
-          </van-search>
-        </div>
-      </div>
     </nav>
-    <bar></bar>
-    <div>
+    <div class="cl dw">
+      <bar></bar>
+    </div>
+
+    <div v-show="(this.$route.path)===('/surprise')">
       <banner-li></banner-li>
     </div>
+    <div v-show="(this.$route.path)===('/surprise')">
+      <sanvser-jump></sanvser-jump>
+    </div>
+    <div v-show="(this.$route.path)===('/surprise')">
+    <p style="color:violet">亿元补贴，爆款直降</p>
+      <hplex-jump></hplex-jump>
+      <span class="dess" style="color:violet;">猜你喜欢</span>
+      <show-jump></show-jump>
+    </div>
+    <foot-jump></foot-jump>
   </div>
 </template>
 <script>
 import mory from "@/components/surprise/content/many.vue";
-import bar from '@/components/surprise/content/bar.vue'
+import bar from "@/components/surprise/content/bar.vue";
 import banner from "@/components/surprise/content/banner.vue";
+import sanvser from "@/components/surprise/content/sanvser.vue";
+import hplex from "@/components/surprise/content/eindox.vue";
+import foot from "@/components/surprise/content/foot.vue";
+import showi from "@/components/surprise/content/show.vue";
 // @ is an alias to /src
 export default {
   name: "surprise",
@@ -40,13 +43,20 @@ export default {
       flag: false
     };
   },
-
+  mounted() {
+    document.onscroll = function() {
+      let t = document.documentElement.scrollTop || document.body.scrollTop;
+      let a = document.querySelector(".dw");
+      if (t >= 13.600000381469727) {
+        a.style.position = "fixed";
+        a.style.zIndex = 100;
+      } else {
+        a.style.position = "static";
+      }
+    };
+  },
   methods: {
-    onSearch() {
-      console.log(this);
-    },
     sreturn() {
-      console.log(this);
       this.$router.push("/home");
     },
     jurp() {
@@ -55,14 +65,20 @@ export default {
   },
   components: {
     "my-mory": mory,
-    'banner-li':banner,
-    bar:bar
+    "banner-li": banner,
+    bar: bar,
+    "sanvser-jump": sanvser,
+    "hplex-jump": hplex,
+    'foot-jump':foot,
+    'show-jump':showi
   }
 };
 </script>
 <style lang="less" scoped>
+html {
+  width: 100vw;
+}
 .sprs {
-  position: fixed;
   width: 100%;
   padding: 5vw;
   box-sizing: border-box;
@@ -78,18 +94,15 @@ export default {
       float: right;
     }
   }
-  .nav {
-    height: 15vw;
-    > div {
-      display: inline-block;
-      > .arrow-left {
-        display: inline-block;
-      }
-      > .search {
-        width: 80vw;
-        margin: auto;
-      }
-    }
+  .dess{
+    margin: 5vw 0;
+    display: inline-block;
+  }
+  .dw {
+    overflow: hidden;
+    background: white ;
+    top: 0;
+    left: 3vw;
   }
 }
 </style>
