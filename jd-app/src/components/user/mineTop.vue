@@ -18,7 +18,7 @@
       </div>
       <div class="topCenter">
         <p class="editCount" @click="editFn">
-          {{username?username:defaultName}}
+          {{defaultName||username}}
           <van-icon name="edit" />
         </p>
         <p class="name">用户名: {{username?username:defaultName}}</p>
@@ -46,14 +46,14 @@
       <van-overlay :show="show">
         <div class="wrapper" @click.stop>
           <van-panel title="编辑京东账户信息">
-            <div>
+            <div class="zIndexUp">
               <p class="username">
                 用户名:
                 <span> {{username?username:defaultName}}</span>
               </p>
               <p class="tips1">用户名不可修改</p>
               <van-cell-group class="niName">
-                <van-field v-model="username" label="昵称" placeholder="请输入昵称" />
+                <van-field v-model="defaultName" label="昵称" placeholder="请输入昵称" />
               </van-cell-group>
               <p class="tips2">4-20个字符，可由中英文、数字、"-"、"_" 组成</p>
             </div>
@@ -75,16 +75,13 @@ export default {
   data() {
     return {
       show: false,
-      defaultName:'jd_610c788ee0177'
+      defaultName:''
     };
   },
   computed: {
-    ...mapState(["username"]),
+    ...mapState(["username"])
   },
   methods: {
-    nameInp() {
-      this.$store.dispatch("nameChange");
-    },
     settingFn() {
       this.$router.push("/user/countSetting");
     },
@@ -93,6 +90,7 @@ export default {
     },
     editFn() {
       this.show = true;
+      this.defaultName= this.defaultName || this.username
     },
     closeMask() {
       this.show = false;
@@ -115,16 +113,20 @@ export default {
   overflow: hidden;
   .editMask {
     padding: 5vw;
-    .van-overlay {
-      z-index: 700;
+    .wrapper .zIndexUp .van-cell-group{
+      z-index: 9999;
+      width: 82vw;
     }
     .tips1,
     .tips2 {
       text-align: left;
-      text-indent: 10px;
+      text-indent: 15px;
       color: #ccc;
     }
+    .tips2{
+      font-size: 12px;
 
+    }
     .username,
     .van-field {
       height: 12vw;

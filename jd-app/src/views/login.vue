@@ -78,7 +78,7 @@ export default {
           localStorage.setItem("token", "sdfgdfgaergeargdvxergr");
           localStorage.setItem("username",this.name)
           this.$store.commit("stateChange", { loginState: true });
-          this.$router.back();
+          this.$router.push('/home');
         } else {
           this.$toast.fail("用户名或者密码错误");
         }

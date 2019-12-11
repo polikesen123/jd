@@ -34,7 +34,7 @@ export default {
     getcmdDate() {
       commod().then(data => {
         this.ary = data.data;
-        console.log(this.ary)
+        // console.log(this.ary)
       });
     }
   }

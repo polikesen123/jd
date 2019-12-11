@@ -77,7 +77,7 @@
     <div class="service">客户服务</div>
     <van-divider :style="{ color: '#666', borderColor: '#999', padding: '0 16px' }">为您推荐</van-divider>
     <div class="myCommend">
-      
+      <goods></goods>
     </div>
   </div>
 
@@ -86,6 +86,7 @@
 // @ is an alias to /src
 import more from "../moreBar";
 import countmasg from "./mineTop";
+import goods from '../home/commendGoods'
 export default {
   name: "user",
   data() {
@@ -103,9 +104,14 @@ export default {
     };
   },
   methods: {
-    fn() {
+    fn(bol) {
       //   console.log(999);
-      this.flag = !this.flag;
+      if(bol == undefined){
+        this.flag = !this.flag;
+      }else{
+        this.flag = false;
+      }
+      
     },
     showFn() {
       this.fn();
@@ -116,7 +122,8 @@ export default {
   },
   components: {
     more,
-    "count-msg": countmasg
+    "count-msg": countmasg,
+    goods
   }
 };
 </script>

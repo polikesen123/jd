@@ -31,7 +31,7 @@ export default {
   },
   mounted() {
     document.onscroll = ()=> {
-      this.show = false;
+      this.$emit("clickFn",false);
     };
   },
   beforeDestroy() {
@@ -42,7 +42,9 @@ export default {
       //   console.log(666);
       this.$emit("clickFn");
     },
-    homeBtn() {},
+    homeBtn() {
+      
+    },
     cartBtn() {},
     myBtn() {}
   },

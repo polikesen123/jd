@@ -1,7 +1,7 @@
 <template>
   <div class="myheader">
     <nav>
-      <i class="iconfont icon-caidan lt"></i>
+      <i class="iconfont icon-caidan lt" @click="toMenu"></i>
       <van-search
         placeholder="请输入搜索关键词"
         v-model="value"
@@ -14,7 +14,7 @@
         <i class="iconfont icon-wode1"></i>
       </span>
     </nav>
-    
+
     <div class="swiper">
       <van-swipe :autoplay="3000" indicator-color="white" :loop="true">
         <van-swipe-item v-for="item in imgData" :key="item.title">
@@ -36,8 +36,8 @@ export default {
       imgData: []
     };
   },
-  mounted(){
-    console.log(this.loginState)
+  mounted() {
+    console.log(this.loginState);
   },
   components: {},
   created() {
@@ -50,8 +50,11 @@ export default {
     Tologin() {
       this.$router.push("/login");
     },
-    toMy(){
-      this.$router.push('/user')
+    toMy() {
+      this.$router.push("/user");
+    },
+    toMenu() {
+      this.$router.push("/classify");
     },
     getSwiperData() {
       swiper().then(data => {

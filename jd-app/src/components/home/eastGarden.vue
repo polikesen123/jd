@@ -135,7 +135,8 @@ export default {
     overflow: hidden;
     ul {
       li {
-        float: left;
+        // float: left;
+        display: inline-block;
         background-color: #fff;
         margin-bottom: 2vw;
         margin-right: 2vw;
