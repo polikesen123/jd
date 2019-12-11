@@ -34,6 +34,7 @@ export default {
     getcmdDate() {
       commod().then(data => {
         this.ary = data.data;
+
       });
     }
   }

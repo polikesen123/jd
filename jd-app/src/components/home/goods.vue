@@ -43,6 +43,7 @@ export default {
 .goodsBox {
   width: 46vw;
   height: 60vw;
+  background: #fff;
   .imgBox {
     height: 40vw;
     img {

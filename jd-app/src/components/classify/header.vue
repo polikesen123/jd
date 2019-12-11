@@ -17,7 +17,7 @@
             <li @click="myBtn">
               <i class="iconfont icon-wode2"></i>我的京东
             </li>
-            <li>
+            <li @click="surprise">
               <i class="iconfont icon-liulanjilu"></i>浏览记录
             </li>
           </ul>
@@ -50,6 +50,9 @@ export default {
     },
     myBtn() {
       this.$router.push("/user");
+    },
+    surprise(){
+      this.$router.push("/surprise")
     },
     fn() {
       this.flag = false;

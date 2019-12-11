@@ -36,7 +36,7 @@ export default {
       "my-coupon":mycoupon,
       "my-header":myheader,
       "my-main":mymain,
-      "my-footer":myfooter
+      "my-footer":myfooter,
   }
 };
 </script>

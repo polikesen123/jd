@@ -1,16 +1,19 @@
 <template>
   <div class="mine">
-    <div class="mine-top">
-      <van-nav-bar title="我的" left-arrow>
-        <van-icon name="ellipsis" slot="right" @click="showFn" />
+    <div class="mine-top">      
+      <van-nav-bar title="我的" left-arrow  @click-left="backFn"  @click-right="showFn">
+        <van-icon name="ellipsis" slot="right"/>
       </van-nav-bar>
+
       <div class="moreBox">
         <more :flag="flag" @clickFn="fn"></more>
       </div>
+
     </div>
     <div class="countMsg">
       <count-msg></count-msg>
     </div>
+
     <van-grid class="gridOne">
       <van-grid-item icon="coupon-o" text="待付款" />
       <van-grid-item icon="logistics" text="待收货" />
@@ -77,7 +80,7 @@
     <div class="service">客户服务</div>
     <van-divider :style="{ color: '#666', borderColor: '#999', padding: '0 16px' }">为您推荐</van-divider>
     <div class="myCommend">
-      
+      <goods></goods>
     </div>
   </div>
 
@@ -86,6 +89,7 @@
 // @ is an alias to /src
 import more from "../moreBar";
 import countmasg from "./mineTop";
+import goods from '../home/commendGoods'
 export default {
   name: "user",
   data() {
@@ -103,17 +107,26 @@ export default {
     };
   },
   methods: {
-    fn() {
+    fn(bol) {
       //   console.log(999);
-      this.flag = !this.flag;
+      if(bol == undefined){
+        this.flag = !this.flag;
+      }else{
+        this.flag = false;
+      }
+      
     },
     showFn() {
       this.fn();
+    },
+    backFn(){
+      this.$router.back()
     }
   },
   components: {
     more,
-    "count-msg": countmasg
+    "count-msg": countmasg,
+    goods
   }
 };
 </script>

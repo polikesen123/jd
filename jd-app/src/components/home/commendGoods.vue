@@ -7,7 +7,7 @@
       />
     </div>
     <div class="goodsListBox cl">
-      <div class="goodItem" v-for="item in goodsList" :key="item.id">
+      <div class="goodItem" v-for="item in jdGoods" :key="item.id">
         <goods :data="item"></goods>
       </div>
     </div>
@@ -17,11 +17,12 @@
 // @ is an alias to /src
 import goods from "./goods";
 import { getGoods } from "@/api/home.js";
+import { mapState } from "vuex";
 export default {
   name: "XXX",
   data() {
     return {
-      goodsList: []
+      // goodsList: []
     };
   },
   components: {
@@ -30,12 +31,18 @@ export default {
   created() {
     this.getGoodsData();
   },
+  computed: {
+    ...mapState(['jdGoods'])
+  },
   methods: {
     getGoodsData() {
-      getGoods().then(data => {
-        this.goodsList = data.data;
-        console.log(this.goodsList);
-      });
+      if (!this.jdGoods) {
+        getGoods().then(data => {
+          localStorage.setItem("jdGoods", JSON.stringify(data.data));
+          this.$store.commit('goodsData',{jdGoods:data.data})
+          console.log(this.goodsList);
+        });
+      }
     }
   }
 };
@@ -54,9 +61,10 @@ export default {
   .goodsListBox {
     .goodItem {
       float: left;
+      margin-bottom: 2vw;
     }
     .goodItem:nth-child(2n + 1) {
-      margin-right: 2vw;
+      margin-right: 2.5vw;
     }
   }
 }
