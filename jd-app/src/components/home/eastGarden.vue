@@ -118,7 +118,7 @@ export default {
   components: {}
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .eastContainer {
   width: 100%;
   height: 90vw;

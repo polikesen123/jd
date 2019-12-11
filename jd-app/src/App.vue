@@ -14,6 +14,7 @@ window.onload = function() {
   document.addEventListener("gesturestart", function(event) {
     event.preventDefault();
   });
+  
 };
 </script>
 <style lang="less">

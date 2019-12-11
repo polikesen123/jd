@@ -1,8 +1,8 @@
 <template>
   <div class="mine">
     <div class="mine-top">
-      <van-nav-bar title="我的" left-arrow>
-        <van-icon name="ellipsis" slot="right" @click="showFn" />
+      <van-nav-bar title="我的" left-arrow  @click-left="backFn"  @click-right="showFn">
+        <van-icon name="ellipsis" slot="right"/>
       </van-nav-bar>
       <div class="moreBox">
         <more :flag="flag" @clickFn="fn"></more>
@@ -109,6 +109,9 @@ export default {
     },
     showFn() {
       this.fn();
+    },
+    backFn(){
+      this.$router.back()
     }
   },
   components: {

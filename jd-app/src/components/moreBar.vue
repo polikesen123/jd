@@ -1,5 +1,5 @@
 <template>
-  <div class="bigBox" v-show="flag" @click.self.stop="fn">
+  <div class="bigBox" v-show="flag" :show="show" @click="fn">
     <ul class="showClass">
       <li @click="homeBtn">
         <i class="iconfont icon-shouye"></i>首页
@@ -25,11 +25,21 @@ export default {
   name: "XXX",
   props: ["flag"],
   data() {
-    return {};
+    return {
+      show :false
+    };
+  },
+  mounted() {
+    document.onscroll = ()=> {
+      this.show = false;
+    };
+  },
+  beforeDestroy() {
+    document.onscroll = null;
   },
   methods: {
     fn() {
-    //   console.log(666);
+      //   console.log(666);
       this.$emit("clickFn");
     },
     homeBtn() {},
@@ -46,6 +56,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 500;
 }
 .iconfont {
   font-size: 30px;

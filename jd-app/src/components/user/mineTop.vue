@@ -1,12 +1,12 @@
 <template>
   <div class="mineTopBox">
     <div class="settingBox cl">
-      <router-link to="/user/countSetting" tag="span" class="rt">
+      <span class="rt" @click="settingFn">
         <van-icon name="setting-o" />账户管理
-      </router-link>
+      </span>
     </div>
     <div class="center">
-      <router-link to="/user/countMange" class="avator" tag="div">
+      <div class="avator" @click="mangeFn">
         <img
           src="https://img11.360buyimg.com/jdphoto/s120x120_jfs/t21160/90/706848746/2813/d1060df5/5b163ef9N4a3d7aa6.png"
           alt
@@ -15,13 +15,13 @@
           待实名认证
           <van-icon name="arrow" />
         </span>
-      </router-link>
+      </div>
       <div class="topCenter">
-        <p class="editCount">
-          jd_610c788ee0177
+        <p class="editCount" @click="editFn">
+          {{username?username:defaultName}}
           <van-icon name="edit" />
         </p>
-        <p class="name">用户名:jd_610c788ee0177</p>
+        <p class="name">用户名: {{username?username:defaultName}}</p>
         <p class="cirle cl">
           <span class="lt">
             京享值
@@ -42,14 +42,64 @@
         <span class="rt">0元试用</span>
       </div>
     </div>
+    <div class="editMask">
+      <van-overlay :show="show">
+        <div class="wrapper" @click.stop>
+          <van-panel title="编辑京东账户信息">
+            <div>
+              <p class="username">
+                用户名:
+                <span> {{username?username:defaultName}}</span>
+              </p>
+              <p class="tips1">用户名不可修改</p>
+              <van-cell-group class="niName">
+                <van-field v-model="username" label="昵称" placeholder="请输入昵称" />
+              </van-cell-group>
+              <p class="tips2">4-20个字符，可由中英文、数字、"-"、"_" 组成</p>
+            </div>
+            <div slot="footer">
+              <van-button size="small" @click="closeMask">取消</van-button>
+              <van-button size="small" type="danger" @click="saveNikoName">保存</van-button>
+            </div>
+          </van-panel>
+        </div>
+      </van-overlay>
+    </div>
   </div>
 </template>
 <script>
 // @ is an alias to /src
+import { mapState } from "vuex";
 export default {
   name: "XXX",
   data() {
-    return {};
+    return {
+      show: false,
+      defaultName:'jd_610c788ee0177'
+    };
+  },
+  computed: {
+    ...mapState(["username"]),
+  },
+  methods: {
+    nameInp() {
+      this.$store.dispatch("nameChange");
+    },
+    settingFn() {
+      this.$router.push("/user/countSetting");
+    },
+    mangeFn() {
+      this.$router.push("/user/countMange");
+    },
+    editFn() {
+      this.show = true;
+    },
+    closeMask() {
+      this.show = false;
+    },
+    saveNikoName() {
+      this.show = false;
+    }
   },
   components: {}
 };
@@ -62,6 +112,34 @@ export default {
   padding: 0 4vw;
   box-sizing: border-box;
   border-radius: 0 0 10vw 10vw;
+  overflow: hidden;
+  .editMask {
+    padding: 5vw;
+    .van-overlay {
+      z-index: 700;
+    }
+    .tips1,
+    .tips2 {
+      text-align: left;
+      text-indent: 10px;
+      color: #ccc;
+    }
+
+    .username,
+    .van-field {
+      height: 12vw;
+      line-height: 12vw;
+      width: 70vw;
+      margin: 10px auto;
+      border-radius: 10px;
+      background: whitesmoke;
+      text-align: left;
+      text-indent: 10px;
+    }
+    .van-field {
+      line-height: 8vw;
+    }
+  }
   .settingBox {
     height: 10vw;
     line-height: 10vw;
