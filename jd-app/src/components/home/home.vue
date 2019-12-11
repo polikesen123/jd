@@ -72,7 +72,5 @@ export default {
 .homeMainBox{
   background: #eee;
   width: 100%;
-  margin-bottom: 20vw;
-
 }
 </style>

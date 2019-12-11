@@ -1,7 +1,6 @@
 // 主页
 <template>
   <div class="mainPage">
-
     <div class="padBot">
       <router-view></router-view>
     </div>
@@ -35,14 +34,13 @@
         </router-link>
       </div>
 
-      <div>
+      <div @click="nologin">
         <router-link to="/user">
           <i class="iconfont icon-wode"></i>
           <div>{{loginState ? "我的" : '未登录'}}</div>
         </router-link>
       </div>
     </nav>
-    
   </div>
 </template>
 
@@ -58,7 +56,15 @@ export default {
   },
   created() {
     if (!localStorage.getItem("token")) {
-      // this.$router.push('/login')
+      this.$router.push('/home')
+    }
+  },
+  methods: {
+    nologin() {
+      console.log(this.loginState);
+      if (this.loginState == false) {
+        this.$router.push("/login");
+      }
     }
   },
   computed: {
