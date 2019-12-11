@@ -24,6 +24,12 @@ const routes = [
     component:Login
   },
   {
+    path:'/surprise/barbaby',
+    name:'barbaby',
+    component:()=>import('@/components/surprise/banner/barbaby.vue')
+},
+
+  {
     path:'*',
     redirect:'/'
   }

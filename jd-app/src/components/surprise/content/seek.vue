@@ -3,7 +3,7 @@
     <div class="head">
       <van-icon name="arrow-left" size="5vw" @click="sreturn" style="float:left"></van-icon>京喜
       <van-icon name="more-o" style="float:right" size="5vw" @click="jurp"></van-icon>
-       <my-mory :flag="flag"></my-mory>
+       <my-mory :flag="flag" v-show="flag" @run="run"></my-mory>
     </div>
 
     <van-search
@@ -34,12 +34,13 @@ export default {
   methods: {
     onSearch() {
         if(!this.value) return
-        alert('本网站倒闭拉')
+        alert('对不起，本网站倒闭拉')
     },
     sreturn(){
         this.$router.back()
     },
-    jurp(){ this.flag = !this.flag;}
+    jurp(){ this.flag = !this.flag;},
+    run(){this.flag = !this.flag}
   },
   components: {
       'my-mory':mory

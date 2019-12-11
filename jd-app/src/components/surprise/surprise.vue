@@ -4,7 +4,7 @@
       <div class="head">
         <van-icon name="arrow-left" size="5vw" @click="sreturn" style="float:left"></van-icon>京喜
         <van-icon name="more-o" style="float:right" size="5vw" @click="jurp"></van-icon>
-        <my-mory :flag="flag"></my-mory>
+        <my-mory @run="run" :flag='flag' v-show="flag"></my-mory>
       </div>
     </nav>
     <div class="cl dw">
@@ -37,17 +37,19 @@ import showi from "@/components/surprise/content/show.vue";
 // @ is an alias to /src
 export default {
   name: "surprise",
+  
   data() {
     return {
       value: "",
-      flag: false
+      flag: false,
+      // flaag: "none"
     };
   },
   mounted() {
     document.onscroll = function() {
       let t = document.documentElement.scrollTop || document.body.scrollTop;
       let a = document.querySelector(".dw");
-      if (t >= 13.600000381469727) {
+      if (t >= 40.600000381469727) {
         a.style.position = "fixed";
         a.style.zIndex = 100;
       } else {
@@ -63,7 +65,23 @@ export default {
       this.$router.push("/home");
     },
     jurp() {
-      this.flag = !this.flag;
+      // this.flaag = 'block'
+      this.flag = !this.flag
+      // if(this.flag){
+      //   this.flaag = 'block'
+      // }else {
+      //   this.flaag = 'none'
+      // }
+      // let a = document.querySelector('.nonel')
+      // a.style.display = this.flaag
+    },
+    run() {
+      // this.$router.back()
+      // let a = document.querySelector('.nonel')
+      // if(this.flaag=='block'){
+        this.flag = !this.flag
+        // a.style.display = 'none'
+      // }else{}
     }
   },
   components: {

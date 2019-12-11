@@ -1,6 +1,6 @@
 <template>
   <div class="footBox">
-    <van-grid :column-num="3" >
+    <van-grid :column-num="3" icon-size='20px'>
       <van-grid-item v-for="(item,index) in ary" :key="index" :icon="item.icon" :text="item.name" :to='item.path' />
     </van-grid>
   </div>

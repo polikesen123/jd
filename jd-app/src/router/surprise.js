@@ -124,5 +124,4 @@ export default [
         name: 'bore',
         component: ()=>import('@/components/surprise/content/sansver/bore.vue')
     },
-
 ]
