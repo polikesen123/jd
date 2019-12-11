@@ -18,7 +18,7 @@
       <sanvser-jump></sanvser-jump>
     </div>
     <div v-show="(this.$route.path)===('/surprise')">
-    <p style="color:violet">亿元补贴，爆款直降</p>
+      <p style="color:violet">亿元补贴，爆款直降</p>
       <hplex-jump></hplex-jump>
       <span class="dess" style="color:violet;">猜你喜欢</span>
       <show-jump></show-jump>
@@ -55,6 +55,9 @@ export default {
       }
     };
   },
+  beforeDestroy() {
+    document.onscroll = null;
+  },
   methods: {
     sreturn() {
       this.$router.push("/home");
@@ -69,8 +72,8 @@ export default {
     bar: bar,
     "sanvser-jump": sanvser,
     "hplex-jump": hplex,
-    'foot-jump':foot,
-    'show-jump':showi
+    "foot-jump": foot,
+    "show-jump": showi
   }
 };
 </script>
@@ -94,13 +97,13 @@ html {
       float: right;
     }
   }
-  .dess{
+  .dess {
     margin: 5vw 0;
     display: inline-block;
   }
   .dw {
     overflow: hidden;
-    background: white ;
+    background: white;
     top: 0;
     left: 3vw;
   }
