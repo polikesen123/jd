@@ -1,16 +1,20 @@
 <template>
   <div class="mine">
     <div class="mine-top">
+      
       <van-nav-bar title="我的" left-arrow>
         <van-icon name="ellipsis" slot="right" @click="showFn" />
       </van-nav-bar>
+
       <div class="moreBox">
         <more :flag="flag" @clickFn="fn"></more>
       </div>
+
     </div>
     <div class="countMsg">
       <count-msg></count-msg>
     </div>
+
     <van-grid class="gridOne">
       <van-grid-item icon="coupon-o" text="待付款" />
       <van-grid-item icon="logistics" text="待收货" />
