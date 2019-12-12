@@ -4,7 +4,7 @@
       <li @click="homeBtn">
         <i class="iconfont icon-shouye"></i>首页
       </li>
-      <li>
+      <li @click="classifyBtn">
         <i class="iconfont icon-fenlei"></i>分类搜索
       </li>
       <li @click="cartBtn">
@@ -13,7 +13,7 @@
       <li @click="myBtn">
         <i class="iconfont icon-wode2"></i>我的京东
       </li>
-      <li>
+      <li @click="surpriseBtn">
         <i class="iconfont icon-liulanjilu"></i>浏览记录
       </li>
     </ul>
@@ -26,12 +26,12 @@ export default {
   props: ["flag"],
   data() {
     return {
-      show :false
+      show: false
     };
   },
   mounted() {
-    document.onscroll = ()=> {
-      this.$emit("clickFn",false);
+    document.onscroll = () => {
+      this.$emit("clickFn", false);
     };
   },
   beforeDestroy() {
@@ -43,10 +43,27 @@ export default {
       this.$emit("clickFn");
     },
     homeBtn() {
-      
+      if (this.$route.path == "/home") return;
+      this.$router.push("/home");
+      // console.log(666)
     },
-    cartBtn() {},
-    myBtn() {}
+    classifyBtn() {
+      if (this.$route.path == "/classify") return;
+      this.$router.push("/classify");
+      // console.log(666)
+    },
+    cartBtn() {
+      if (this.$route.path == "/carts") return;
+      this.$router.push("/carts");
+    },
+    myBtn() {
+      if (this.$route.path == "/user") return;
+      this.$router.push("/user");
+    },
+    surpriseBtn() {
+      if (this.$route.path == "/surprise") return;
+      this.$router.push("/surprise");
+    }
   },
   components: {}
 };

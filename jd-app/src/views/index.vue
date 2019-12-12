@@ -56,13 +56,13 @@ export default {
   },
   created() {
     if (!localStorage.getItem("token")) {
-      this.$router.push('/home')
+      // this.$router.push('/home')
     }
   },
   methods: {
     nologin() {
       console.log(this.loginState);
-      if (this.loginState == false) {
+      if (!this.loginState) {
         this.$router.push("/login");
       }
     }

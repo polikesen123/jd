@@ -37,6 +37,14 @@ export default {
     };
   },
   components: {},
+  mounted() {
+    document.onscroll = () => {
+      this.flag = false;
+    };
+  },
+  beforeDestroy() {
+    document.onscroll = null;
+  },
   methods: {
     onSearch() {
       this.flag = !this.flag;
@@ -51,8 +59,8 @@ export default {
     myBtn() {
       this.$router.push("/user");
     },
-    surprise(){
-      this.$router.push("/surprise")
+    surprise() {
+      this.$router.push("/surprise");
     },
     fn() {
       this.flag = false;
@@ -82,7 +90,7 @@ export default {
   height: 100%;
 }
 .iconfont {
-  font-size: 30px;
+  font-size: 22px;
 }
 .icon-zuojiantou {
   float: left;

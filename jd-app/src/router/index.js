@@ -21,23 +21,19 @@ let routes = [{
     children: [].concat(home, classify, surprise, user, carts)
   },
   {
-
-    path:'/surprise/barbaby',
-    name:'barbaby',
-    component:()=>import('@/components/surprise/banner/barbaby.vue')
-},
-
-  {
-    path:'*',
-    redirect:'/',
-
     path: '/login',
     name: 'login',
     component: Login
 
+  }, 
+  {
+
+    path: '/surprise/barbaby',
+    name: 'barbaby',
+    component: () => import('@/components/surprise/banner/barbaby.vue')
   }
 ]
-routes = routes.concat(setting,mange)
+routes = routes.concat(setting, mange)
 
 const router = new VueRouter({
   mode: 'hash',

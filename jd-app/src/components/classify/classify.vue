@@ -1,5 +1,6 @@
 <template>
   <div class="tabBox">
+    <c-header></c-header>
     <ul class="tab lt">
       <li
         v-for="(item,index) in aryList"
@@ -24,6 +25,7 @@
 </template>
 <script>
 // @ is an alias to /src
+import classHeader from './header'
 const aryList = [
   {
     id: 1,
@@ -485,7 +487,6 @@ const aryList = [
     ]
   },
 ];
-
 export default {
   name: "XXX",
   data() {
@@ -501,7 +502,9 @@ export default {
       console.log(666);
     }
   },
-  components: {}
+  components: {
+    'c-header':classHeader
+  }
 };
 </script>
 <style lang="less" scoped>
@@ -512,8 +515,7 @@ export default {
 .tabBox {
   box-sizing: border-box;
   width: 100vw;
-  margin-top: 20vw;
-  margin-bottom: 20vw;
+  margin-top: 15vw;
 }
 .tabBox .tab {
   // display: flex; //在同一行
