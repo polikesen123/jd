@@ -11,6 +11,8 @@ import user from './user'
 //引入兄弟路由映射表
 import setting from './setting'
 import mange from './mange'
+import jdSeconds from './jdSeconds'
+import order from './myorder'
 Vue.use(VueRouter)
 
 let routes = [{
@@ -33,7 +35,7 @@ let routes = [{
     component: () => import('@/components/surprise/banner/barbaby.vue')
   }
 ]
-routes = routes.concat(setting, mange)
+routes = routes.concat(setting, mange,jdSeconds,order)
 
 const router = new VueRouter({
   mode: 'hash',

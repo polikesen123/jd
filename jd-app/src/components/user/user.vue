@@ -14,11 +14,11 @@
       <count-msg></count-msg>
     </div>
 
-    <van-grid class="gridOne">
-      <van-grid-item icon="coupon-o" text="待付款" />
-      <van-grid-item icon="logistics" text="待收货" />
+    <van-grid class="gridOne" clickable>
+      <van-grid-item icon="coupon-o" text="待付款" @click="toOrder"/>
+      <van-grid-item icon="logistics" text="待收货" @click="toOrder"/>
       <van-grid-item icon="refund-o" text="退换/售后" />
-      <van-grid-item icon="bag-o" text="全部订单" />
+      <van-grid-item icon="bag-o" text="全部订单" @click="toOrder"/>
     </van-grid>
     <van-row type="flex" justify="space-around" class="rowSecond">
       <van-col span="4">
@@ -121,6 +121,9 @@ export default {
     },
     backFn(){
       this.$router.back()
+    },
+    toOrder(){
+      this.$router.push('/user/order')
     }
   },
   components: {
