@@ -1,8 +1,8 @@
 <template>
   <div class="headBox">
-    <div class="bible" v-for="(item,index) in ary" :key="index">
+    <div class="bible" v-for="(item,index) in ary" :key="index" @click="run(item)">
       <div class="imgBox">
-        <img :src="item.url" alt="">
+        <img :src="item.img" alt="">
       </div>
       <div>
         <p class="xpa">{{item.dess}}</p>
@@ -20,7 +20,8 @@ export default {
   name: "showi",
   data() {
     return {
-      ary:[]
+      ary:[],
+      obj:{}
     };
   },
   created() {
@@ -34,8 +35,10 @@ export default {
     getcmdDate() {
       commod().then(data => {
         this.ary = data.data;
-
       });
+    },
+    run(obj){
+      this.$router.push({path:'/surprise/barbaby',query:obj})
     }
   }
 };

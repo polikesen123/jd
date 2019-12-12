@@ -51,7 +51,7 @@ export default {
       this.dess = this.obj.dess;
     },
     sreturn() {
-      this.$router.back();
+      this.$router.push('/surprise');
     },
     jurp() {
       this.flag = !this.flag;
@@ -61,7 +61,7 @@ export default {
     },
     up(a) {
       this.$router.push({ path: "/classify", query: { a } });
-      console.log(this.obj);
+      console.dir(this.$router.push);
       //   let {diss} = this.$route.query
       //   console.log(diss)
     }
