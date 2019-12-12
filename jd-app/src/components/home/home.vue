@@ -8,7 +8,7 @@
       <newpeople></newpeople>
       <div class="top2">
         <img
-          src="https://m.360buyimg.com/mobilecms/s750x200_jfs/t1/97096/25/4836/88605/5de9c588Ed130b121/a60febbe6a08bc83.png!q70.webp"
+          src="https://m.360buyimg.com/mobilecms/jfs/t1/103489/38/6075/189632/5df0ab9cE2f2aef29/45567056fa285b85.gif"
           alt
         />
       </div>
@@ -56,7 +56,7 @@ export default {
 <style lang="less">
 .colorBox {
   width: 100%;
-  background: rgb(192, 5, 5);
+  background: #ff3841;
   padding: 3vw;
   box-sizing: border-box;
   .top2 {
