@@ -1,10 +1,7 @@
 <template>
-  <div class="goodsBox">
+  <div class="goodsBox" @click="run(data.title,data.img,data.price,data.desc)">
     <div class="imgBox">
-      <img
-        :src="data.img"
-        alt
-      />
+      <img :src="data.img" alt />
     </div>
     <div class="desc">
       <p class="text">
@@ -19,7 +16,8 @@
             src="https://img11.360buyimg.com/jdphoto/s102x28_jfs/t14512/288/2659278877/2368/8468a10d/5aadf9daNd4909ddc.png"
             alt
           />
-        </span>{{data.desc}}
+        </span>
+        {{data.desc}}
       </p>
       <p class="info cl">
         <span class="price lt">¥{{data.price}}</span>
@@ -32,9 +30,21 @@
 // @ is an alias to /src
 export default {
   name: "XXX",
-  props:["data"],
+  props: ["data"],
   data() {
-    return {};
+    return {
+      obj:{}
+    };
+  },
+  methods: {
+    run(n, a, s, o) {
+      this.obj.ms = n;
+      this.obj.img = a;
+      this.obj.many = s;
+      this.obj.dess = o;
+      let obj = this.obj;
+      this.$router.push({ path: "/surprise/barbaby", query: { obj } });
+    }
   },
   components: {}
 };

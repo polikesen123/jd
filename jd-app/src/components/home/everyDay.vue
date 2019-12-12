@@ -40,7 +40,7 @@ export default {
     getData() {
       getEveryDay().then(data => {
         this.everyDayData = data.data;
-        console.log(this.everyDayData)
+        // console.log(this.everyDayData)
       });
     }
   },

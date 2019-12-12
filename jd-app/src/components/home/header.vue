@@ -18,7 +18,11 @@
 
     <div class="swiper">
       <van-swipe :autoplay="3000" indicator-color="white" :loop="true">
-        <van-swipe-item v-for="item in imgData" :key="item.title">
+        <van-swipe-item
+          v-for="item in imgData"
+          :key="item.title"
+          @click="runCarts(item.dess,item.img,item.many,item.dess)"
+        >
           <img :src="item.img" alt />
         </van-swipe-item>
       </van-swipe>
@@ -35,7 +39,8 @@ export default {
     return {
       value: "",
       imgData: [],
-      name:'首页'
+      name: "首页",
+      obj:{}
     };
   },
   mounted() {
@@ -49,12 +54,20 @@ export default {
     ...mapState(["loginState"])
   },
   methods: {
-    run(name){
-      this.$router.push({path:'/surprise/seek',query:name})
+    runCarts(n, a, s, o) {
+      this.obj.ms = n;
+      this.obj.img = a;
+      this.obj.many = s;
+      this.obj.dess = o;
+      let obj = this.obj;
+      this.$router.push({ path: "/surprise/barbaby", query: { obj } });
+    },
+    run(name) {
+      this.$router.push({ path: "/surprise/seek", query: name });
     },
     Tologin() {
       this.$router.push("/login");
-      console.log(666)
+      console.log(666);
     },
     toMy() {
       this.$router.push("/user");
@@ -76,11 +89,14 @@ export default {
   //   width: 100%;
   padding: 1vw 3vw;
   line-height: 12vw;
-  background: rgb(192, 5, 5);
   color: #fff;
   height: 45vw;
-  background: rgb(192, 5, 5);
   border-radius: 0 0 30px 30px;
+  background-image: url(https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/94697/4/6010/79398/5df0bfedE47c81502/8a9f6573430cab20.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: #c00505;
   nav {
     width: 100vw;
     height: 12vw;

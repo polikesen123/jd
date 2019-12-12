@@ -1,8 +1,10 @@
 <template>
   <div>
-    <myheader></myheader>
-    <grid></grid>
-    <mytop></mytop>
+    <div class="ttopBox">
+      <myheader></myheader>
+      <grid></grid>
+      <mytop></mytop>
+    </div>
     <div class="colorBox">
       <jdms></jdms>
       <newpeople></newpeople>
@@ -30,10 +32,10 @@ import homeTop from "./homeTop";
 import jdms from "./jdSecond";
 import newpeople from "./newpeople";
 import fourBox from "./fourBox";
-import eastGarden from './eastGarden';
-import every from './everyDay'
-import jdNews from './jdNews.vue';
-import commend from './commendGoods'
+import eastGarden from "./eastGarden";
+import every from "./everyDay";
+import jdNews from "./jdNews.vue";
+import commend from "./commendGoods";
 export default {
   name: "home",
   data() {
@@ -46,14 +48,18 @@ export default {
     jdms,
     newpeople,
     four: fourBox,
-    east:eastGarden,
+    east: eastGarden,
     every,
-    'jd-news':jdNews,
+    "jd-news": jdNews,
     commend
   }
 };
 </script>
 <style lang="less">
+.ttopBox {
+  width: 100%;
+  background: #ff3841;
+}
 .colorBox {
   width: 100%;
   background: #ff3841;
@@ -69,7 +75,7 @@ export default {
     }
   }
 }
-.homeMainBox{
+.homeMainBox {
   background: #eee;
   width: 100%;
 }
