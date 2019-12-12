@@ -60,7 +60,7 @@ export default {
       this.flag = !this.flag;
     },
     up(a) {
-      this.$router.push({ path: "/classify", query: { a } });
+      this.$router.push({ path: "/carts", query: { a } });
       console.dir(this.$router.push);
       //   let {diss} = this.$route.query
       //   console.log(diss)

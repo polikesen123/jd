@@ -8,6 +8,7 @@
         shape="round"
         background="rgb(192,5,5)"
         class="lt search"
+        @click="run(name)"
       />
       <span class="rt" @click="Tologin" v-show="!loginState">登录</span>
       <span class="rt" v-show="loginState" @click="toMy">
@@ -33,7 +34,8 @@ export default {
   data() {
     return {
       value: "",
-      imgData: []
+      imgData: [],
+      name:'首页'
     };
   },
   mounted() {
@@ -47,6 +49,9 @@ export default {
     ...mapState(["loginState"])
   },
   methods: {
+    run(name){
+      this.$router.push({path:'/surprise/seek',query:name})
+    },
     Tologin() {
       this.$router.push("/login");
       console.log(666)

@@ -8,7 +8,7 @@
           show-action
           shape="round"
           @search="onSearch"
-          @click="jump"
+          @click="jump(name)"
           class="search"
         >
           <div slot="action" @click.13="onSearch">搜索</div>
@@ -20,7 +20,7 @@
     <div class="vant-box">
       <van-tabs>
         <span class="vant">
-          <van-icon name="arrow-down" />
+          <van-icon name="arrow-down" @click="blok"/>
         </span>
         <van-tab v-for="(item) in ary" :key="item.path" :title="item.text" :to="item.path">
           <router-view></router-view>
@@ -35,6 +35,7 @@ export default {
   name: "bar",
   data() {
     return {
+      name:'京喜',
       value: "",
       ary: [
         {
@@ -139,13 +140,15 @@ export default {
       if (!this.value) return;
       console.log("surprise 搜索框事件");
     },
+blok(){
 
+},
     run() {
       if (this.$route.path == "/surprise") return;
       this.$router.push("/surprise");
     },
-    jump() {
-      this.$router.push('/surprise/seek')
+    jump(name) {
+      this.$router.push({path:'/surprise/seek',query:name})
     }
   },
   components: {}
