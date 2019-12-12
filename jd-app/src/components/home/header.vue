@@ -49,6 +49,7 @@ export default {
   methods: {
     Tologin() {
       this.$router.push("/login");
+      console.log(666)
     },
     toMy() {
       this.$router.push("/user");

@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     fn() {
-      //   console.log(999);
       this.flag = !this.flag;
     },
     showFn() {
@@ -35,7 +34,6 @@ export default {
     back(){
         this.$router.back()    
     }
-
   },
   components: {
     more
