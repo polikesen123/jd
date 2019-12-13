@@ -22,7 +22,7 @@
 <script>
 // @ is an alias to /src
 
-import mory from "@/components/surprise/content/many.vue";
+import more from "@/components/moreBar.vue";
 
 export default {
   name: "seek",
@@ -62,7 +62,7 @@ export default {
     }
   },
   components: {
-    "my-mory": mory
+    "my-mory": more
   }
 };
 </script>

@@ -4,7 +4,7 @@
       <div class="head">
         <van-icon name="arrow-left" size="5vw" @click="sreturn" style="float:left"></van-icon>京喜
         <van-icon name="more-o" style="float:right" size="5vw" @click="jurp"></van-icon>
-        <my-mory @run="run" :flag='flag' v-show="flag"></my-mory>
+        <more :flag="flag" @clickFn="fn"></more>
       </div>
     </nav>
     <div class="cl dw">
@@ -27,7 +27,7 @@
   </div>
 </template>
 <script>
-import mory from "@/components/surprise/content/many.vue";
+import more from "@/components/moreBar.vue";
 import bar from "@/components/surprise/content/bar.vue";
 import banner from "@/components/surprise/content/banner.vue";
 import sanvser from "@/components/surprise/content/sanvser.vue";
@@ -37,11 +37,11 @@ import showi from "@/components/surprise/content/show.vue";
 // @ is an alias to /src
 export default {
   name: "surprise",
-  
+
   data() {
     return {
       value: "",
-      flag: false,
+      flag: false
       // flaag: "none"
     };
   },
@@ -61,12 +61,20 @@ export default {
     document.onscroll = null;
   },
   methods: {
+    fn(bol) {
+      //   console.log(999);
+      if (bol == undefined) {
+        this.flag = !this.flag;
+      } else {
+        this.flag = false;
+      }
+    },
     sreturn() {
       this.$router.push("/home");
     },
     jurp() {
       // this.flaag = 'block'
-      this.flag = !this.flag
+      this.flag = !this.flag;
       // if(this.flag){
       //   this.flaag = 'block'
       // }else {
@@ -79,13 +87,13 @@ export default {
       // this.$router.back()
       // let a = document.querySelector('.nonel')
       // if(this.flaag=='block'){
-        this.flag = !this.flag
-        // a.style.display = 'none'
+      this.flag = !this.flag;
+      // a.style.display = 'none'
       // }else{}
     }
   },
   components: {
-    "my-mory": mory,
+    more,
     "banner-li": banner,
     bar: bar,
     "sanvser-jump": sanvser,
