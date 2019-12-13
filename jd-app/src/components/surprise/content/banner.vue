@@ -7,7 +7,7 @@
         :to="item.path"
         @click="run(item.dess,item.img,item.many,item.dess)"
       >
-        <img :src="item.img" alt />
+        <img :src="item.img" alt v-lazy="item.img"/>
       </van-swipe-item>
     </van-swipe>
   </div>

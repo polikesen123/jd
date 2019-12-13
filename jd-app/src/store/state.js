@@ -4,5 +4,5 @@ export default {
     count:0,
     loginState:false,
     username,
-    jdGoods:JSON.parse(jdGoods) || ''
+    jdGoods:JSON.parse(jdGoods) || {}
 }

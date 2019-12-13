@@ -4,12 +4,12 @@
       <!-- v-for="(data,idx) in item.data" :key="idx" -->
       <div class="ebsgw">
         <div class="mllml" @click="up(item.data[0])">
-          <img :src="item.data[0].img" alt />
+          <img :src="item.data[0].img" alt v-lazy="item.data[0].img" />
           <span>{{item.data[0].dess}}</span>
         </div>
 
         <div class="adlhb" @click="up(item.data[1])">
-          <img :src="item.data[1].img" alt />
+          <img :src="item.data[1].img" alt  v-lazy="item.data[0].img"/>
           <span>{{item.data[1].dess}}</span>
         </div>
       </div>

@@ -1,12 +1,13 @@
 <template>
   <div class="mymain">
-    <div class="cartBox" v-for="(item,index) in aryList" :key="item.id">
+    <!--  v-for="(item,index) in obj" :key="item.id" -->
+    <div class="cartBox" v-for="(item,index) in jdGoods" :key="item.id">
       <van-checkbox class="lt tipBox" v-model="item.isSelect"></van-checkbox>
       <div class="lt imgBox">
-        <img :src="item.url" />
+        <img :src="item.img" />
       </div>
       <div class="rt textBox">
-        <p>{{item.text}}</p>
+        <p>{{item.title}}</p>
         <span class="desc">{{item.desc}}</span>
         <span class="buy lt">{{item.price|money}}</span>
         <van-stepper class="compute rt" v-model="item.count"></van-stepper>
@@ -65,6 +66,7 @@
 <script>
 // @ is an alias to /src
 import { main } from "@/api/carts.js";
+import { mapState } from 'vuex';
 export default {
   name: "XXX",
   data() {
@@ -73,17 +75,25 @@ export default {
       collectIndex: null,
       show: false,
       showw: false,
-      aryList: []
+      aryList: [],
+      count:1,
+      ary:[],
+      obj:{},
+      isSelect:true
     };
   },
   components: {},
   created() {
-    this.getMainData();
+    this.getMainData();   
   },
   methods: {
     onSubmit() {},
-    getMainData() {
+    getMainData() {  
+      /* let obj = this.$route.query.a
+      this.obj = obj ? obj : this.aryList
+      console.log(obj) */         
       main().then(data => {
+        console.log(data)
         this.aryList = data.data;
       });
     },
@@ -96,7 +106,7 @@ export default {
     },
 
     collectS() {
-      //   this.aryList.splice(this.collectIndex, 1);
+      this.aryList.splice(this.collectIndex, 1);
       this.showw = false;
       console.log(666);
     },
@@ -116,6 +126,11 @@ export default {
     }
   },
   computed: {
+    ...mapState(['jdGoods']),
+    // ...mapState(["commod"]),
+    arr(){
+      return this.ary.push(this.arr)
+    },
     checkAll: {
       get() {
         return this.aryList.every(item => item.isSelect);

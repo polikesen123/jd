@@ -80,7 +80,7 @@ export default {
   left: 0;
   top: 0;
   background: #fff;
-  z-index: 1;
+  z-index: 99;
 }
 .bigBox {
   position: fixed;

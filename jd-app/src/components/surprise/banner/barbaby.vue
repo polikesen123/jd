@@ -36,6 +36,8 @@ export default {
 
   created() {
     this.getData();
+    // let jdGoods = localStorage.getItem('jdGoods');
+    // this.$store.dispatch("goodsData")
   },
   methods: {
     getData() {

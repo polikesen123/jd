@@ -2,7 +2,7 @@
   <div class="headBox">
     <div class="bible" v-for="(item,index) in ary" :key="index" @click="run(item)">
       <div class="imgBox">
-        <img :src="item.img" alt="">
+        <img :src="item.img" alt="" v-lazy="item.img"/>
       </div>
       <div>
         <p class="xpa">{{item.dess}}</p>
@@ -35,6 +35,7 @@ export default {
     getcmdDate() {
       commod().then(data => {
         this.ary = data.data;
+        
       });
     },
     run(obj){

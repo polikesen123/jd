@@ -7,4 +7,5 @@ export function nameChange(state,option){
 }
 export function goodsData(state,option){
     state.jdGoods = option.jdGoods
+
 }

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <van-divider :style="{ color: '#666', borderColor: '#999',backgroundColor:'#eee', padding: '4vw 4vw'}">为您推荐</van-divider>
     <div class="myFooter lt" v-for="item in shopData" :key="item.id">
       <div class="imgBox">
         <img :src="item.url" alt />
@@ -16,6 +17,7 @@
 </template>
 <script>
 // @ is an alias to /src
+// import goods from '../home/commendGoods'
 import { footer } from "@/api/carts.js";
 export default {
   name: "xxx",

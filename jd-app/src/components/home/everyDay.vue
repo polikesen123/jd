@@ -15,7 +15,7 @@
           </div>
           <div class="imgbox">
             <div class="first">
-              <img :src="item.img" alt />
+              <img :src="item.img" alt="*" v-lazy="item.img" />
             </div>
           </div>
         </li>

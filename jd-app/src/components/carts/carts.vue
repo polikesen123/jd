@@ -16,6 +16,7 @@ import mycoupon from './coupon.vue'
 import myheader from './header.vue'
 import mymain from './main.vue'
 import myfooter from './footer.vue'
+
 import Vue from 'vue'
 Vue.filter('money',function(val){
     return "￥"+(val/100).toFixed(2)
@@ -30,6 +31,13 @@ export default {
   methods: {
   },
   filters:{
+    
+  },
+  created(){
+    
+    
+  },
+  methods: {
     
   },
   components: {

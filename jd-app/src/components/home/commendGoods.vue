@@ -29,10 +29,10 @@ export default {
     goods
   },
   created() {
-    this.getGoodsData();
+    this.getGoodsData();     
   },
   computed: {
-    ...mapState(['jdGoods'])
+    ...mapState(['jdGoods'])       
   },
   methods: {
     getGoodsData() {
