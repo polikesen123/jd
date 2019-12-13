@@ -1,6 +1,7 @@
 export default [{
-    path: '/jdSeconds/msPage',
+    path: '/jdSeconds',
     name: 'jdSeconds',
+    redirect:'/jdSeconds/msPage',
     component: () => import( /* webpackChunkName: "focus" */ '@/components/common/jdSecond/jdSeconds.vue'),
     children: [{
             path: '/jdSeconds/msPage',

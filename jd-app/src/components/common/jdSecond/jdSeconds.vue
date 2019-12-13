@@ -17,7 +17,7 @@ export default {
   name: "XXX",
   data() {
     return {
-     
+     active3:1
     };
   },
   methods: {
@@ -37,8 +37,8 @@ export default {
     }
   },
   components: {
-    more,
-    recommend
+    // more,
+    // recommend
   }
 };
 </script>

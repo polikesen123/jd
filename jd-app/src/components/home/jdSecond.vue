@@ -55,6 +55,8 @@ export default {
   },
   methods: {
     tojdSecond() {
+      console.log(222);
+      
       this.$router.push("/jdSeconds");
     },
     getJdMsData() {

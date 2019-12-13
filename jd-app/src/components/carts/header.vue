@@ -1,14 +1,12 @@
 <template>
   <div class="myheader">
-    
-    <van-nav-bar title="购物车" left-arrow  @click-left='back' @click-right="showFn">
-        <van-icon name="ellipsis" slot="right"  />
+    <van-nav-bar title="购物车" left-arrow @click-left="back" @click-right="showFn">
+      <van-icon name="ellipsis" slot="right" />
     </van-nav-bar>
-      <div class="moreBox">
-        <more :flag="flag" @clickFn="fn"></more>
-      </div>
-      
-      
+    <div class="moreBox">
+      <more :flag="flag" @clickFn="fn"></more>
+    </div>
+
     <van-notice-bar text="记得清空你的购物车记得清空你的购物车哦记得清空你的购物车哦哦" left-icon="volume-o"></van-notice-bar>
     <span class="edit rt">编辑商品</span>
   </div>
@@ -20,19 +18,24 @@ export default {
   name: "myheader",
   data() {
     return {
-      show:true,
+      show: true,
       flag: false
     };
   },
   methods: {
-    fn() {
-      this.flag = !this.flag;
+    fn(bol) {
+      //   console.log(999);
+      if (bol == undefined) {
+        this.flag = !this.flag;
+      } else {
+        this.flag = false;
+      }
     },
     showFn() {
       this.fn();
     },
-    back(){
-        this.$router.back()    
+    back() {
+      this.$router.back();
     }
   },
   components: {
