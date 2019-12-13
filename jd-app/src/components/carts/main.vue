@@ -1,27 +1,27 @@
 <template>
   <div class="mymain">
-    <!--  v-for="(item,index) in obj" :key="item.id" -->
-    <div class="cartBox" v-for="(item,index) in jdGoods" :key="item.id">
-      <van-checkbox class="lt tipBox" v-model="item.isSelect"></van-checkbox>
+     <span v-show="ppp" class="shwww">共{{obj[0].num}}件商品</span>
+    <div class="cartBox" v-for="(item,index) in obj" :key="index">
+      <van-checkbox class="lt tipBox" @click="exchange" v-model="isSelect"></van-checkbox>
       <div class="lt imgBox">
         <img :src="item.img" />
       </div>
       <div class="rt textBox">
-        <p>{{item.title}}</p>
-        <span class="desc">{{item.desc}}</span>
-        <span class="buy lt">{{item.price|money}}</span>
-        <van-stepper class="compute rt" v-model="item.count"></van-stepper>
+        <p>{{item.dess}}</p>
+        <span class="desc">{{item.ms}}</span>
+        <span class="buy lt">￥{{item.many}}</span>
+        <!-- <van-stepper class="compute rt" v-model="item.count"></van-stepper> -->
       </div>
       <!-- 收藏 删除按钮 -->
 
-      <van-button class="collect" size="mini" @click="collect(index)">收藏</van-button>
+      <van-button class="collect" size="mini" @click="collect  (index)">收藏</van-button>
       <van-button class="del" size="mini" @click="del(index)">删除</van-button>
 
       
       <!-- 结算功能 -->
       <van-submit-bar v-model="item.total" button-text="去结算" @submit="onSubmit">
         <van-checkbox v-model="checkAll">全选</van-checkbox>
-        <h3>{{total|money}}</h3>
+        <h3>￥{{aaa}}</h3>
         <span slot="tip">
           <!-- <span>修改地址</span> -->
         </span>
@@ -71,15 +71,18 @@ export default {
   name: "XXX",
   data() {
     return {
+      value:'',
       delIndex: null,
       collectIndex: null,
       show: false,
       showw: false,
-      aryList: [],
+      aryList:[],
       count:1,
       ary:[],
       obj:{},
-      isSelect:true
+      isSelect:true,
+      aaa:'',
+      ppp:''
     };
   },
   components: {},
@@ -88,14 +91,25 @@ export default {
   },
   methods: {
     onSubmit() {},
-    getMainData() {  
-      /* let obj = this.$route.query.a
-      this.obj = obj ? obj : this.aryList
-      console.log(obj) */         
-      main().then(data => {
-        console.log(data)
-        this.aryList = data.data;
-      });
+    getMainData() {   
+      // this.aaa = this.obj.many*this.obj.num
+      // this.aaa = (this.obj[0].many)*(this.obj[0].num)
+      // console.log(this.obj.many)
+      // console.log(this.obj.num)
+      this.obj = this.$route.query.a
+      if(this.obj[0].num&&this.obj[0].num>0){
+        this.ppp = true
+      }else{
+        this.ppp = false
+      }
+      // console.log(this.qqq)
+      this.aaa = this.obj[0].many*this.obj[0].num
+      // console.log(this.obj)
+      // console.log(this.obj[0].many)
+      // console.log(this.obj[0].num)
+    },
+    exchange(){
+      this.isSelect = !this.isSelect
     },
     collect(m) {
       this.collectIndex = m;
@@ -134,6 +148,7 @@ export default {
     checkAll: {
       get() {
         return this.aryList.every(item => item.isSelect);
+        console.log(666)
       },
       set(val) {
         console.log(val);
@@ -229,5 +244,11 @@ export default {
     margin: 0 5vw;
     padding: 2vw;
   }
+}
+.shwww{
+  display: inline-block;
+  color: rgb(204, 34, 34);
+  transform: translateY(-10vw);
+  border: 1px solid red;
 }
 </style>
