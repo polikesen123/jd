@@ -1,8 +1,8 @@
 <template>
   <div class="mymain">
-     <span v-show="ppp" class="shwww">共{{obj[0].num}}件商品</span>
+     <span v-if="ppp" class="shwww">共{{obj[0].num}}件商品</span>
     <div class="cartBox" v-for="(item,index) in obj" :key="index">
-      <van-checkbox class="lt tipBox" @click="exchange" v-model="isSelect"></van-checkbox>
+      <van-checkbox class="lt tipBox" @click="exchange" v-model="item.isSelect"></van-checkbox>
       <div class="lt imgBox">
         <img :src="item.img" />
       </div>
@@ -80,7 +80,7 @@ export default {
       count:1,
       ary:[],
       obj:{},
-      isSelect:true,
+      isSelect:false,
       aaa:'',
       ppp:''
     };
@@ -104,6 +104,7 @@ export default {
       }
       // console.log(this.qqq)
       this.aaa = this.obj[0].many*this.obj[0].num
+      // this.obj = this.obj ? this.obj : this.aryList;
       // console.log(this.obj)
       // console.log(this.obj[0].many)
       // console.log(this.obj[0].num)
@@ -140,23 +141,23 @@ export default {
     }
   },
   computed: {
-    ...mapState(['jdGoods']),
+    // ...mapState(['jdGoods']),
     // ...mapState(["commod"]),
     arr(){
       return this.ary.push(this.arr)
     },
     checkAll: {
       get() {
-        return this.aryList.every(item => item.isSelect);
+        return this.obj.every(item => item.isSelect);
         console.log(666)
       },
       set(val) {
         console.log(val);
-        this.aryList.forEach(item => (item.isSelect = val));
+        this.obj.forEach(item => (item.isSelect = val));
       }
     },
     total() {
-      return this.aryList
+      return this.obj
         .filter(item => item.isSelect)
         .reduce((prev, next) => prev + next.count * next.price, 0);
     }
