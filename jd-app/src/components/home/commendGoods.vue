@@ -22,7 +22,6 @@ export default {
   name: "XXX",
   data() {
     return {
-      // goodsList: []
     };
   },
   components: {
@@ -36,13 +35,10 @@ export default {
   },
   methods: {
     getGoodsData() {
-      if (!this.jdGoods) {
         getGoods().then(data => {
           localStorage.setItem("jdGoods", JSON.stringify(data.data));
           this.$store.commit('goodsData',{jdGoods:data.data})
-          console.log(this.goodsList);
         });
-      }
     }
   }
 };
