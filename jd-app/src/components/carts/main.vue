@@ -107,7 +107,9 @@ export default {
       }
       // console.log(this.qqq)
       this.aaa = this.obj[0].many*this.obj[0].num
+
       // this.obj = this.obj ? this.obj : this.aryList;
+
       console.log(this.aaa)
       // console.log(this.obj)
       // console.log(this.obj[0].many)
@@ -152,16 +154,16 @@ export default {
     },
     checkAll: {
       get() {
-        return this.obj.every(item => item.isSelect);
+        return this.aryList.every(item => item.isSelect);
         console.log(666)
       },
       set(val) {
         console.log(val);
-        this.obj.forEach(item => (item.isSelect = val));
+        this.aryList.forEach(item => (item.isSelect = val));
       }
     },
     total() {
-      return this.obj
+      return this.aryList
         .filter(item => item.isSelect)
         .reduce((prev, next) => prev + next.count * next.price, 0);
     }
