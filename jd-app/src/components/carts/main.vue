@@ -97,6 +97,7 @@ export default {
       // this.aaa = (this.obj[0].many)*(this.obj[0].num)
       // console.log(this.obj.many)
       // console.log(this.obj.num)
+      if(!this.obj[0]) return
       this.obj = this.$route.query.a
       if(this.obj[0].num&&this.obj[0].num>0){
         console.log(this.obj[0].num)
