@@ -1,7 +1,6 @@
 <template>
-
   <div class="mymain" v-if="ppp">
-     <span class="shwww">共{{obj[0].num}}件商品</span>
+    <span class="shwww">共{{obj[0].num}}件商品</span>
     <div class="cartBox" v-for="(item,index) in obj" :key="index">
       <van-checkbox class="lt tipBox" @click="exchange" v-model="item.isSelect"></van-checkbox>
       <div class="lt imgBox">
@@ -18,7 +17,6 @@
       <van-button class="collect" size="mini" @click="collect  (index)">收藏</van-button>
       <van-button class="del" size="mini" @click="del(index)">删除</van-button>
 
-      
       <!-- 结算功能 -->
       <van-submit-bar v-model="item.total" button-text="去结算" @submit="onSubmit">
         <van-checkbox v-model="checkAll">全选</van-checkbox>
@@ -67,60 +65,71 @@
 <script>
 // @ is an alias to /src
 import { main } from "@/api/carts.js";
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 export default {
   name: "XXX",
   data() {
     return {
-      value:'',
+      value: "",
       delIndex: null,
       collectIndex: null,
       show: false,
       showw: false,
-      aryList:[],
-      count:1,
-      ary:[],
-      obj:{},
-      isSelect:false,
-      aaa:'',
-      ppp:''
+      aryList: [
+        {
+          id: 1,
+          url:
+            "https://img14.360buyimg.com/mobilecms/s270x270_jfs/t1/98835/26/5221/254811/5debd045E904adfb7/7d65aacb44b33f92.jpg",
+          text: "卡西欧|2019款315欧式手表（支持尺寸修改）已经出售加预定",
+          desc: "秒杀中...",
+          isSelect: false,
+          count: 2,
+          price: "550000"
+        }
+      ],
+      count: 1,
+      ary: [],
+      obj: {},
+      isSelect: false,
+      aaa: "",
+      ppp: ""
     };
   },
   components: {},
   created() {
-    this.getMainData();   
+    this.getMainData();
   },
   methods: {
     onSubmit() {},
-    getMainData() {   
+    getMainData() {
       // this.aaa = this.obj.many*this.obj.num
       // this.aaa = (this.obj[0].many)*(this.obj[0].num)
       // console.log(this.obj.many)
       // console.log(this.obj.num)
-      
-      this.obj = this.$route.query.a
-      if(!this.obj){
-        return
+
+      this.obj = this.$route.query.a;
+      if (!this.obj) {
+        return;
       }
-      if(this.obj[0].num&&this.obj[0].num>0){
-        console.log(this.obj[0].num)
-        this.ppp = true
-      }else{
-        console.log(this.obj[0].num)
-        this.ppp = false
+      if (this.obj[0].num && this.obj[0].num > 0) {
+        console.log(this.obj[0].num);
+        this.ppp = true;
+      } else {
+        console.log(this.obj[0].num);
+        this.ppp = false;
       }
       // console.log(this.qqq)
-      this.aaa = this.obj[0].many*this.obj[0].num
+      this.aaa = this.obj[0].many * this.obj[0].num;
 
       // this.obj = this.obj ? this.obj : this.aryList;
 
-      console.log(this.aaa)
+      console.log(this.aaa);
       // console.log(this.obj)
       // console.log(this.obj[0].many)
       // console.log(this.obj[0].num)
     },
-    exchange(){
-      this.isSelect = !this.isSelect
+    exchange() {
+      this.isSelect = !this.isSelect;
     },
     collect(m) {
       this.collectIndex = m;
@@ -131,7 +140,8 @@ export default {
     },
 
     collectS() {
-      this.aryList.splice(this.collectIndex, 1);
+      (this.aryList = this.aryList ? this.aryList : this.obj).splice(
+        this.collectIndex,1);
       this.showw = false;
       console.log(666);
     },
@@ -146,30 +156,37 @@ export default {
       this.show = false;
     },
     sure() {
-      this.aryList.splice(this.delIndex, 1);
+      (this.aryList = this.aryList ? this.aryList : this.obj).splice(
+        this.delIndex,
+        1
+      );
       this.show = false;
     }
   },
   computed: {
     // ...mapState(['jdGoods']),
     // ...mapState(["commod"]),
-    arr(){
-      return this.ary.push(this.arr)
+    arr() {
+      return this.ary.push(this.arr);
     },
     checkAll: {
       get() {
-        return this.aryList.every(item => item.isSelect);
-        console.log(666)
+        return (this.aryList = this.aryList ? this.aryList : this.obj).every(
+          item => item.isSelect
+        );
+        console.log(666);
       },
       set(val) {
         console.log(val);
-        this.aryList.forEach(item => (item.isSelect = val));
+        (this.aryList = this.aryList ? this.aryList : this.obj).forEach(
+          item => (item.isSelect = val)
+        );
       }
     },
     total() {
-      return this.aryList
+      return this.obj
         .filter(item => item.isSelect)
-        .reduce((prev, next) => prev + next.count * next.price, 0);
+        .reduce((prev, next) => prev + next.count * next.mary, 0);
     }
   }
 };
@@ -256,7 +273,7 @@ export default {
     padding: 2vw;
   }
 }
-.shwww{
+.shwww {
   display: inline-block;
   color: rgb(204, 34, 34);
   transform: translateY(-10vw);
