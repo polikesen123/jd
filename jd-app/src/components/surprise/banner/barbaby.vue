@@ -57,7 +57,7 @@ export default {
     },
     jst() {
       if (this.num >= 10) {
-        alert("该商品最大数量为20");
+        alert("该商品最大数量为10");
         this.num=10
         return
       }

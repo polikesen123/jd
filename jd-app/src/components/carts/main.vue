@@ -1,6 +1,6 @@
 <template>
-  <div class="mymain">
-     <span v-show="ppp" class="shwww">共{{obj[0].num}}件商品</span>
+  <div class="mymain" v-if="ppp">
+     <span class="shwww">共{{obj[0].num}}件商品</span>
     <div class="cartBox" v-for="(item,index) in obj" :key="index">
       <van-checkbox class="lt tipBox" @click="exchange" v-model="isSelect"></van-checkbox>
       <div class="lt imgBox">
@@ -98,12 +98,15 @@ export default {
       // console.log(this.obj.num)
       this.obj = this.$route.query.a
       if(this.obj[0].num&&this.obj[0].num>0){
+        console.log(this.obj[0].num)
         this.ppp = true
       }else{
+        console.log(this.obj[0].num)
         this.ppp = false
       }
       // console.log(this.qqq)
       this.aaa = this.obj[0].many*this.obj[0].num
+      console.log(this.aaa)
       // console.log(this.obj)
       // console.log(this.obj[0].many)
       // console.log(this.obj[0].num)
